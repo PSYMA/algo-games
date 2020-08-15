@@ -10,7 +10,7 @@ body{
     display: table;
     width: 100%;
     background: slategrey;
-    background-image: url('Assets/Cat.png');
+    background-image: url('/Assets/Cat.png');
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: 100% 100%;
