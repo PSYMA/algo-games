@@ -9,7 +9,7 @@ export default class BubbleSort {
     }
     private async sleep(msec: number) { return new Promise(resolve => setTimeout(resolve, msec)); }
     private async BubbleSort() {
-        document.getElementById("sortingmessage").textContent = "Visualizing BubbleSort...";
+        document.getElementById("SortingMessage").textContent = "Visualizing BubbleSort...";
         for (let i = 0; i < this.arr.length; i++) {
             for (let j = 0; j < this.arr.length; j++) {
                 if (this.arr[i].height < this.arr[j].height) {
@@ -41,7 +41,7 @@ export default class BubbleSort {
         slider.disabled = false;
         this.isAlgorithmRunning[0] = false;
  
-        document.getElementById("sortingmessage").textContent = "Done sorting!";
+        document.getElementById("SortingMessage").textContent = "Done sorting!";
     }
     public StartBubbleSort() {
         this.BubbleSort();
