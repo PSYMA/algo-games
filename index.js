@@ -20,8 +20,6 @@ let targetNode = undefined;
 let prevDivBtn = undefined;
 let wallList = [];
 let buttonArray = [];
-document.getElementById("PathFinding").hidden = true;
-document.getElementById("PathFindingAlgorithm").hidden = true;
 var PathFindingAlgorithm;
 (function (PathFindingAlgorithm) {
     PathFindingAlgorithm[PathFindingAlgorithm["None"] = 0] = "None";
@@ -249,7 +247,6 @@ let canvas = document.getElementById("SortingBoard");
 let ctx = canvas.getContext("2d");
 let selectSortingAlgorithm = SortingAlgorithm.None;
 let slider = document.getElementById("Slider");
-document.getElementById("Sorting").hidden = true;
 function AddRandomRect(value) {
     arrayElements = [];
     let width = Math.floor(canvas.width / value);
@@ -341,7 +338,6 @@ document.getElementById("Slider").oninput = function () {
 let gameWidth = undefined;
 let gameHeight = undefined;
 let snake = new Snake(ctx, gameWidth, gameHeight, isAlgorithmRunning);
-document.getElementById("Snake").hidden = true;
 document.getElementById("SnakeGame").onclick = function () {
     if (!isAlgorithmRunning[0]) {
         document.getElementById("Sorting").hidden = true;

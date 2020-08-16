@@ -7,8 +7,6 @@ import FloodFill from './Pathfinding/FloodFill.js'
 import PrimsAlgorithm from './Maze/PrimsAlgorithm.js'
 import RecursiveDivision from './Maze/RecursiveDivision.js'
 
-
-
 let isAlgorithmRunning = new Array<boolean>(1);
 
 /*---------------------------------------------------PATH FINDING-------------------------------------------------------*/
@@ -24,8 +22,6 @@ let targetNode: HTMLDivElement = undefined;
 let prevDivBtn: HTMLDivElement = undefined;
 let wallList: Array<HTMLDivElement> = [];
 let buttonArray: Array<HTMLDivElement>[] = [];
-document.getElementById("PathFinding").hidden = true;
-document.getElementById("PathFindingAlgorithm").hidden = true;
 enum PathFindingAlgorithm { None = 0, Astar, Dijkstra, Floodfill, GreedyBestFirst }
 let selectPathFindingAlgorithm: PathFindingAlgorithm = PathFindingAlgorithm.None;
 
@@ -247,7 +243,6 @@ let canvas: any = document.getElementById("SortingBoard");
 let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
 let selectSortingAlgorithm: SortingAlgorithm = SortingAlgorithm.None;
 let slider: any = document.getElementById("Slider");
-document.getElementById("Sorting").hidden = true;
 
 function AddRandomRect(value: number): void {
     arrayElements = [];
@@ -344,7 +339,6 @@ document.getElementById("Slider").oninput = function () {
 let gameWidth = undefined;
 let gameHeight = undefined;
 let snake = new Snake(ctx, gameWidth, gameHeight, isAlgorithmRunning);
-document.getElementById("Snake").hidden = true;
 document.getElementById("SnakeGame").onclick = function () {
     if (!isAlgorithmRunning[0]) {
         document.getElementById("Sorting").hidden = true;
