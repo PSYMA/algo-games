@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    font-family: monospace;
+    display: table;
+    width: 100%;
+    background: slategrey;
+    background-image: url('/Assets/Cat.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+}
+nav{
+    background: #0082e6;
+    height: 80px;
+}
+label.logo{
+    color: white;
+    font-size: 40px;
+    line-height: 80px;
+    font-weight: bold;
+}
+nav ul{
+    float: right;
+    margin-right: 100px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: white;
+    font-size: 20px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+a:hover {
+    background: #1b9bff;
+    transition: .5s;
+}
+#PathFinding{
+    margin-top: 2px; 
+    text-transform: uppercase;
+    color: white;
+}
+#PathFinding div {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    margin-left: auto;
+    border: 1px solid black;
+}
+#Sorting{
+    margin-top: 2px; 
+    text-transform: uppercase;
+    color: white;
+}
+#Snake{
+    margin-top: 2px; 
+    text-transform: uppercase;
+    color: white;
+}
+ 
+div{
+    text-align: center;
+}
+div ul li{
+    display: inline-block;
+    font-size: 30px;
+    margin-left: 20px;
+}
+div ul li a{
+    color: white;
+}
+
+.dropdown .dropbtn {
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: lightgray;
+}
+  
+.dropdown-content a {
+    border: 1px solid black;
+    color: black;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: auto;
+    padding: 0;
+}
+ 
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+ 

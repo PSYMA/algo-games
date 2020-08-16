@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <nav>
+        <label class="logo">Algorithm-Games</label>
+        <ul>
+            <li><a id="Home" href="#/">Home</a></li>
+            <li class="dropdown"><a id="Games" href="#/" class="dropbtn">Games
+                    <i class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        <a href="#/" id="SnakeGame">Snake Game</a>
+                    </div>
+                </a>
+            </li>
+            <li><a id="Portfolio" href="#/">Portfolio</a></li>
+            <li class="dropdown"><a id="AlgorithmVisualization" href="#/" class="dropbtn">Algorithm Visualization
+                    <i class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        <a href="#/" id="SortingAlgorithm">Sorting Algorithm</a>
+                        <a href="#/" id="PathfindingAlgorithm">Pathfinding Algorithm</a>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div id="PathFinding">
+        <div style="background: yellow;"></div>
+        <label style="font-size: 20px; font-weight: bold;">Path</label>
+        <div style="background: black;"></div>
+        <label style="font-size: 20px; font-weight: bold;">Wall</label>
+        <div style="background: skyblue;"></div>
+        <label style="font-size: 20px; font-weight: bold;">Visited</label>
+        <div style="background: white;"></div>
+        <label style="font-size: 20px; font-weight: bold;">Unvisited</label>
+        <div style="background: green;"></div>
+        <label style="font-size: 20px; font-weight: bold;">StartNode</label>
+        <div style="background: red;"> </div>
+        <label style="font-size: 20px; font-weight: bold;">TargetNode</label>
+    </div>
+    <div id="PathFindingAlgorithm">
+        <ul>
+            <li class="dropdown">
+                <div href="#/" class="dropbtn">
+                    <a href="#/">Algorithm</a>
+                    <i style="color: white" class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        <a href="#/" id="Dijkstra">Dijkstra</a>
+                        <a href="#/" id="AStar">A* Search</a>
+                        <a href="#/" id="FloodFill">FloodFill Search</a>
+                        <a href="#/" id="GreedyBestFirst">Greedy Best First</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#/" id="ClearBoardPathFinding">Clear Board</a></li>
+            <li><a href="#/" id="VisualizePathFinding">Visualize</a></li>
+            <li class="dropdown">
+                <div href="#/" class="dropbtn">
+                    <a href="#/">Maze</a>
+                    <i style="color: white" class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        <a href="#/" id="Prims">Prims Algorithm</a>
+                        <a href="#/" id="Recursive">Recursive Division</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <h1 id="PathFindingMessage" style="color: white;border: 1px solid white;">Welcome to pathfinding visualizer!
+            please select an
+            algorithm</h1>
+        <table id="Grid"
+            style=" background: black; margin-left: auto; margin-right: auto; margin-top: 5px; margin-bottom: auto;">
+        </table>
+    </div>
+    <div id="Sorting">
+        <ul>
+            <li class="dropdown">
+                <div href="#/" class="dropbtn">
+                    <a href="#/">Algorithm</a>
+                    <i style="color: white" class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        <a href="#/" id="QuickSort">Quick Sort</a>
+                        <a href="#/" id="MergeSort">Merge Sort</a>
+                        <a href="#/" id="BubbleSort">Bubble Sort</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#/" id="ResetArray">Reset Array</a></li>
+            <li><a href="#/" id="VisualizeSorting">Visualize</a></li>
+            <input style="display: inline-block;" type="range" min="10" value="10" max="1300" class="slider"
+                id="Slider">
+            <p id="ArraySize" style="font-size: 20px; display: inline-block;"> </p>
+        </ul>
+        <h1 id="SortingMessage" style="border: 1px solid white;">Welcome to sorting visualizer! please select an
+            algorithm
+        </h1>
+        <canvas id="SortingBoard" style="margin-top: 5px; border: 1px solid white;"></canvas>
+    </div>
+    <div id="Snake">
+        <ul>
+            <li><a href="#/" id="Play">Play</a></li>
+            <li><a href="#/" id="Stop">Stop</a></li>
+            <li><a href="#/" id="Play">Reset</a></li>
+        </ul>
+        <h1 id="SnakeMessage" style="border: 1px solid white;"> 
+            Welcome to Snake Game to move press W, A, S, D
+        </h1>
+        <canvas id="SnakeBoard" width="1300" height="470"
+            style="margin-top: 5px; border: 1px solid white; margin-left: auto; margin-right: auto;">
+        </canvas>
+    </div>
+    <script type="module" src="/index.js"></script>
+</body>
+
+</html>
