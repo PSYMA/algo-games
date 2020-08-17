@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">Algorithm-Games</label>
+        <ul>
+            <li><a id="Home" href="#/">Home</a></li>
+            <li class="dropdown"><a id="Games" href="#/" class="dropbtn">Games
+                    <i class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        <!-- <a href="#/" id="SnakeGame">Snake Game</a> -->
+                    </div>
+                </a>
+            </li>
+            <li><a id="Portfolio" href="#/">Portfolio</a></li>
+            <li class="dropdown"><a id="AlgorithmVisualization" href="#/" class="dropbtn">Algorithm Visualization
+                    <i class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        <a href="#/" id="SortingAlgorithm">Sorting Algorithm</a>
+                        <a href="#/" id="PathfindingAlgorithm">Pathfinding Algorithm</a>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div id="PathFinding" hidden="true">
+        <div style="background: yellow;"></div>
+        <label style="font-size: 20px; font-weight: bold;">Path</label>
+        <div style="background: black;"></div>
+        <label style="font-size: 20px; font-weight: bold;">Wall</label>
+        <div style="background: skyblue;"></div>
+        <label style="font-size: 20px; font-weight: bold;">Visited</label>
+        <div style="background: white;"></div>
+        <label style="font-size: 20px; font-weight: bold;">Unvisited</label>
+        <div style="background: green;"></div>
+        <label style="font-size: 20px; font-weight: bold;">StartNode</label>
+        <div style="background: red;"> </div>
+        <label style="font-size: 20px; font-weight: bold;">TargetNode</label>
+    </div>
+    <div id="PathFindingAlgorithm" hidden="true">
+        <ul>
+            <li class="dropdown">
+                <div href="#/" class="dropbtn">
+                    <a href="#/">Algorithm</a>
+                    <i style="color: white" class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        <a href="#/" id="Dijkstra">Dijkstra</a>
+                        <a href="#/" id="AStar">A* Search</a>
+                        <a href="#/" id="FloodFill">FloodFill Search</a>
+                        <a href="#/" id="GreedyBestFirst">Greedy Best First</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#/" id="ClearBoardPathFinding">Clear Board</a></li>
+            <li><a href="#/" id="VisualizePathFinding">Visualize</a></li>
+            <li class="dropdown">
+                <div href="#/" class="dropbtn">
+                    <a href="#/">Maze</a>
+                    <i style="color: white" class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        <a href="#/" id="Prims">Prims Algorithm</a>
+                        <a href="#/" id="Recursive">Recursive Division</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <h1 id="PathFindingMessage" style="color: white;border: 1px solid white;">Welcome to pathfinding visualizer!
+            please select an
+            algorithm</h1>
+        <table id="Grid"
+            style=" background: black; margin-left: auto; margin-right: auto; margin-top: 5px; margin-bottom: auto;">
+        </table>
+    </div>
+    <div id="Sorting" hidden="true">
+        <ul>
+            <li class="dropdown">
+                <div href="#/" class="dropbtn">
+                    <a href="#/">Algorithm</a>
+                    <i style="color: white" class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        <a href="#/" id="QuickSort">Quick Sort</a>
+                        <!-- <a href="#/" id="MergeSort">Merge Sort</a> -->
+                        <a href="#/" id="BubbleSort">Bubble Sort</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#/" id="ResetArray">Reset Array</a></li>
+            <li><a href="#/" id="VisualizeSorting">Visualize</a></li>
+            <input style="display: inline-block;" type="range" min="10" value="10" max="1300" class="slider"
+                id="Slider">
+            <p id="ArraySize" style="font-size: 20px; display: inline-block;"> </p>
+        </ul>
+        <h1 id="SortingMessage" style="border: 1px solid white;">Welcome to sorting visualizer! please select an
+            algorithm
+        </h1>
+        <canvas id="SortingBoard" style="margin-top: 5px; border: 1px solid white;"></canvas>
+    </div>
+    <div id="Snake" hidden="true">
+        <ul>
+            <li><a href="#/" id="Play">Play</a></li>
+            <li><a href="#/" id="Stop">Stop</a></li>
+            <li><a href="#/" id="Play">Reset</a></li>
+        </ul>
+        <h1 id="SnakeMessage" style="border: 1px solid white;">
+            Welcome to Snake Game to move press W, A, S, D
+        </h1>
+        <canvas id="SnakeBoard" width="1300" height="470"
+            style="margin-top: 5px; border: 1px solid white; margin-left: auto; margin-right: auto;">
+        </canvas>
+    </div>
+    <div id="DivPortfolio" hidden="true">
+        <div id="AboutMe">
+            <img src="Assets/ID.jpg" alt="Avatar" id="ID">
+            <p>
+                My name is Rickben Anthony Q. Gimeda, I started my programming career year 2018,
+                It was during my second year in college in BS Computer Engineering program. I struggle
+                a lot in programming course but soon enough I started to like it, like how much I can do in programming
+                field. then soon after I decided to take the path of being a programmer.
+            </p><br><br>
+            <p>
+                I have made a couple of projects written in C++ and C# as part of my practice, and study more about
+                Object Oriented Programming and Data structure and Algorithms. My latest creation is the website itself.
+                As part of my goal I'm currently working to make myself a fine developer hoping to get my dream job as a
+                software developer soon.
+            </p><br>
+
+            <li> <a href="https://github.com/PSYMA" target="_blank" style="margin-left: -20%; font-size: 20px;">
+                    View my Github Profile
+                </a>
+            </li>
+        </div>
+        <div id="Projects">
+            <h1 style="font-weight: bold;">PROJECTS</h1><br><br>
+            <div>
+                <h2 style="font-style: italic;">The Pong Game (C++)</h2>
+                <img src="Assets/Thumbnails/pongThumbNail.png" id="img">
+                <br><br><br>
+                <p style="font-size: 20px;">
+                    This is one of my very first project back in my early days in programming C langauge in particular,
+                    The is game quite simple all you need to do is to control the paddle and catch the ball, make sure
+                    to catch the ball otherwise you will lose. clear all stars and you win.
+                    <a href="https://github.com/PSYMA/Ping-pong-Game-simple-Cpp-Console" target="_blank">source code</a>
+                </p>
+            </div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div>
+                <h2 style="font-style: italic;">Simple Library System (C++)</h2>
+                <img src="Assets/Thumbnails/cppLibraryThumbNail.png" id="img">
+                <br><br><br>
+                <p style="font-size: 20px;">
+                    This Simple Library System is my final project during my C language course. I struggle a lot during
+                    my creation of this project, I am still a newbie at that time. the project is quite easy student
+                    borrow book as well return it.
+                    <a href="https://github.com/PSYMA/Library-System-simple-C-Cpp-Console" target="_blank">source
+                        code</a>
+                </p>
+            </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div>
+                <h2 style="font-style: italic;">Puzzle Game (C# (WPF))</h2>
+                <img src="Assets/Thumbnails/puzzleThumbNail.png" id="img">
+                <br><br><br>
+                <p style="font-size: 20px;">
+                    The Puzzle Game this is the last C# project I created it was during early lockdown of March 2020,
+                    due to boredome I decided to create this. The game is same as typical puzzle game you will just need
+                    to put everything in order for you to win.
+                    <a href="https://github.com/PSYMA/Puzzle-Game-CSharp-WPF" target="_blank">source code</a>
+                </p>
+            </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div>
+                <h2 style="font-style: italic;">Tic Tac Toe (C# (WPF))</h2>
+                <img src="Assets/Thumbnails/tictactoeThumbNail.png" id="img">
+                <br><br><br>
+                <p style="font-size: 20px;">
+                    This Tic Tac Toe Game is my prelim project during my C# language course in college, this is not your
+                    typical tic tac toe game, the game itself has more features and way more graphical. The rules is the
+                    same.
+                    <a href="https://github.com/PSYMA/TIC-TAC-TOE-CSharp-WPF" target="_blank">source code</a>
+                </p>
+            </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div>
+                <h2 style="font-style: italic;">The Matching Game (C# (WPF))</h2>
+                <img src="Assets/Thumbnails/matchThumbNail.png" id="img">
+                <br><br><br>
+                <p style="font-size: 20px;">
+                    This Matching Game is my midterm project during my C# language course in college, the game works by
+                    pairing
+                    its cell to the other cell, avoid mistakes and it will reduce your HP when HP goes to zero you lose.
+                    <a href="https://github.com/PSYMA/The-Matching-Game-CSharp-WPF-" target="_blank">source code</a>
+                </p>
+            </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+            <div>
+                <h2 style="font-style: italic;">The Hidden Battle Game (C# (WPF))</h2>
+                <img src="Assets/Thumbnails/battleThumbNail.png" id="img">
+                <br><br><br>
+                <p style="font-size: 20px;">
+                    This Hidden Battle Game is my final project during my C# language course in college, The game is
+                    derived from this board game <a href="https://www.youtube.com/watch?v=4gHJlYLomrs"
+                        target="_blank">link</a>.
+                    this is the most challenging project I created in C# so far took me a lot of time.
+                    <a href="https://github.com/PSYMA/The-Hidden-Game-Battle-CSharp-WPF-" target="_blank">source
+                        code</a>
+                </p>
+            </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div>
+                <h2 style="font-style: italic;">Library System (SQLite integrated) (C# (WPF))</h2>
+                <img src="Assets/Thumbnails/csLibraryThumbNail.png" id="img">
+                <br><br><br>
+                <p style="font-size: 20px;">
+                    This Library System is the upgrade version of my Simple Library System in C++,
+                    its integrated with SQLite and offers a couple of features and its graphical and user friendly.
+                    I decided to create this project to expose myself in database project.
+                    <a href="https://github.com/PSYMA/Library-System-CSharp-WPF" target="_blank">source code</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <li style="position: fixed; color: white; margin-left: 70%; margin-top: 580px; font-size: 20px;">
+        This site is under construction
+        rickbengimeda@gmail.com
+    </li>
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>
