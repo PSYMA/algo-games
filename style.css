@@ -9,26 +9,30 @@ body{
     font-family: monospace;
     display: table;
     width: 100%;
-    background: slategrey;
     background-image: url('Assets/Cat.png');
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: 100% 100%;
 }
 nav{
-    background: #0082e6;
+    background: blue;
+    position: fixed;
+    width: 100%;
     height: 80px;
+    z-index: 1;
 }
 label.logo{
     color: white;
     font-size: 40px;
     line-height: 80px;
+    padding: 0 100px;
     font-weight: bold;
 }
 nav ul{
     float: right;
-    margin-right: 100px;
+    margin-right: 20px;
 }
+ 
 nav ul li{
     display: inline-block;
     line-height: 80px;
@@ -36,16 +40,69 @@ nav ul li{
 }
 nav ul li a{
     color: white;
-    font-size: 20px;
-    border-radius: 3px;
+    font-size: 18px;
     text-transform: uppercase;
 }
-a:hover {
+a:hover, #Home{
     background: #1b9bff;
-    transition: .5s;
+    transition: 0.5s;
+}
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+@media (max-width: 952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+@media (max-width: 852px){
+    .checkbtn{
+        display: block;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+        position: relative;
+    } 
+     
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.5s;
+    }
+    nav ul li{
+        display: block;
+    }
+    nav ul li a {
+        font-size: 20px;
+    }
+    a:hover .dropdown-content{
+        background: none;
+        color: #0082e6;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
 }
 #PathFinding{
-    margin-top: 2px; 
+    margin-top: 80px;
     text-transform: uppercase;
     color: white;
 }
@@ -57,16 +114,53 @@ a:hover {
     border: 1px solid black;
 }
 #Sorting{
-    margin-top: 2px; 
+    margin-top: 80px;
     text-transform: uppercase;
     color: white;
 }
 #Snake{
-    margin-top: 2px; 
+    margin-top: 80px;
     text-transform: uppercase;
     color: white;
 }
+#DivPortfolio, div.paragraph{
+    margin-top: 85px;
+    text-indent: 50px;
+}
+#AboutMe{
+    position: fixed;
+    float: left;
+    width: 30%;
+    height: auto; 
+}
+#Projects{
+    margin-left: 30%;
+    float: left;
+    width: 70%;
+    height: auto;
+    color: white;
+}
  
+p{
+    text-indent: 10%;
+    color: white;
+    text-align: justify;
+    margin-left: 30px;
+    margin-right: 60px;
+}
+ 
+video{
+    width: 500px;
+    float: left;
+    margin-top: 15px;
+    align-items: center;
+}
+#ID{
+    margin-left: -20%;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;  
+}
 div{
     text-align: center;
 }
@@ -79,6 +173,10 @@ div ul li a{
     color: white;
 }
 
+#Games:hover, #AlgorithmVisualization:hover{
+    background: #1b9bff;
+    transition: 0.5s;
+}
 .dropdown .dropbtn {
     border: none;
     outline: none;
@@ -91,7 +189,7 @@ div ul li a{
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: lightgray;
+    background-color: lightgray; 
 }
   
 .dropdown-content a {
@@ -102,9 +200,10 @@ div ul li a{
     text-align: center;
     margin-top: auto;
     padding: 0;
+   
 }
  
 .dropdown:hover .dropdown-content {
     display: block;
-}
+} 
  

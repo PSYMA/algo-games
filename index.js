@@ -1,4 +1,3 @@
-import Snake from './Games/Snake.js';
 import AStar from './Pathfinding/AStar.js';
 import MergeSort from './Sorting/MergeSort.js';
 import QuickSort from './Sorting/QuickSort.js';
@@ -7,6 +6,10 @@ import FloodFill from './Pathfinding/FloodFill.js';
 import PrimsAlgorithm from './Maze/PrimsAlgorithm.js';
 import RecursiveDivision from './Maze/RecursiveDivision.js';
 let isAlgorithmRunning = new Array(1);
+let Home = document.getElementById("Home");
+let Games = document.getElementById("Games");
+let Portfolio = document.getElementById("Portfolio");
+let AlgorithmVisualization = document.getElementById("AlgorithmVisualization");
 /*---------------------------------------------------PATH FINDING-------------------------------------------------------*/
 let row = 20;
 let column = 61;
@@ -45,10 +48,16 @@ function ClearBoardPathFinding() {
 }
 document.getElementById("PathfindingAlgorithm").onclick = function () {
     if (!isAlgorithmRunning[0]) {
+        Games.style.background = "none";
+        Home.style.background = "none";
+        Portfolio.style.background = "none";
+        AlgorithmVisualization.style.background = "#1b9bff";
+        document.getElementById("Snake").hidden = true;
         document.getElementById("Sorting").hidden = true;
+        document.getElementById("DivPortfolio").hidden = true;
         document.getElementById("PathFinding").hidden = false;
         document.getElementById("PathFindingAlgorithm").hidden = false;
-        document.getElementById("Snake").hidden = true;
+        document.title = "Pathfinding Visualizer";
         // create Grid here
         if (!isAddGrid) {
             let table = document.getElementById("Grid");
@@ -271,12 +280,17 @@ function AddRandomRect(value) {
 }
 document.getElementById("SortingAlgorithm").onclick = function () {
     if (!isAlgorithmRunning[0]) {
+        Games.style.background = "none";
+        Home.style.background = "none";
+        Portfolio.style.background = "none";
+        AlgorithmVisualization.style.background = "#1b9bff";
+        document.getElementById("Snake").hidden = true;
         document.getElementById("Sorting").hidden = false;
         document.getElementById("PathFinding").hidden = true;
+        document.getElementById("DivPortfolio").hidden = true;
         document.getElementById("PathFindingAlgorithm").hidden = true;
-        document.getElementById("Snake").hidden = true;
         document.getElementById("ArraySize").innerHTML = slider.value.toString();
-        document.title = "Sorting";
+        document.title = "Sorting Visualizer";
         // create Board here
         canvas.width = 0;
         canvas.height = 0;
@@ -285,10 +299,10 @@ document.getElementById("SortingAlgorithm").onclick = function () {
         AddRandomRect(slider.value);
     }
 };
-document.getElementById("MergeSort").onclick = function () {
-    document.getElementById("VisualizeSorting").textContent = 'Visualize (Merge Sort)';
-    selectSortingAlgorithm = SortingAlgorithm.MergeSort;
-};
+// document.getElementById("MergeSort").onclick = function () {
+//     document.getElementById("VisualizeSorting").textContent = 'Visualize (Merge Sort)';
+//     selectSortingAlgorithm = SortingAlgorithm.MergeSort;
+// }
 document.getElementById("BubbleSort").onclick = function () {
     document.getElementById("VisualizeSorting").textContent = 'Visualize (Bubble Sort)';
     selectSortingAlgorithm = SortingAlgorithm.BubbleSort;
@@ -335,29 +349,33 @@ document.getElementById("Slider").oninput = function () {
     }
 };
 /*-----------------------------------------------------SNAKE GAME--------------------------------------------------------*/
-let gameWidth = undefined;
-let gameHeight = undefined;
-let snake = new Snake(ctx, gameWidth, gameHeight, isAlgorithmRunning);
+/*let snake = new Snake(undefined, undefined, undefined, undefined);
 document.getElementById("SnakeGame").onclick = function () {
     if (!isAlgorithmRunning[0]) {
+        Games.style.background = "#1b9bff";
+        Home.style.background = "none";
+        Portfolio.style.background = "none";
+        AlgorithmVisualization.style.background = "none";
+        document.getElementById("Snake").hidden = false;
         document.getElementById("Sorting").hidden = true;
         document.getElementById("PathFinding").hidden = true;
+        document.getElementById("DivPortfolio").hidden = true;
         document.getElementById("PathFindingAlgorithm").hidden = true;
-        document.getElementById("Snake").hidden = false;
-        let canvas = document.getElementById("SnakeBoard");
-        let ctx = canvas.getContext("2d");
-        gameWidth = canvas.width;
-        gameHeight = canvas.height;
+        let canvas: any = document.getElementById("SnakeBoard");
+        let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
+        let gameWidth = canvas.width;
+        let gameHeight = canvas.height;
         snake = new Snake(ctx, gameWidth, gameHeight, isAlgorithmRunning);
         isAlgorithmRunning[0] = false;
+
     }
-};
+}
 document.getElementById("Play").onclick = function () {
     snake.Play();
-};
+}
 document.getElementById("Stop").onclick = function () {
     isAlgorithmRunning[0] = false;
-};
+}*/
 /*------------------------------------------------------MAZE-------------------------------------------------------------*/
 document.getElementById("Prims").onclick = function () {
     if (!isAlgorithmRunning[0]) {
@@ -384,7 +402,21 @@ document.getElementById("Home").onclick = function () {
     document.getElementById("PathFinding").hidden = true;
     document.getElementById("PathFindingAlgorithm").hidden = true;
     document.getElementById("Snake").hidden = true;
+    location.reload(true);
+    return false;
 };
 document.getElementById("Portfolio").onclick = function () {
+    if (!isAlgorithmRunning[0]) {
+        document.getElementById("Snake").hidden = true;
+        document.getElementById("Sorting").hidden = true;
+        document.getElementById("PathFinding").hidden = true;
+        document.getElementById("DivPortfolio").hidden = false;
+        document.getElementById("PathFindingAlgorithm").hidden = true;
+        document.title = "Portfolio";
+        Games.style.background = "none";
+        Home.style.background = "none";
+        Portfolio.style.background = "#1b9bff";
+        AlgorithmVisualization.style.background = "none";
+    }
 };
 //# sourceMappingURL=index.js.map
