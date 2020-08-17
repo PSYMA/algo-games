@@ -10,10 +10,6 @@ body{
     display: table;
     width: 100%;
     background:#34495e;
-    /* background-image: url('Assets/Cat.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
-    background-size: 100% 100%; */
 }
 nav{
     background:#34495e;
@@ -256,7 +252,8 @@ div ul li a{
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: lightgray;  
+    background-color: lightgray;   
+     z-index: 1;
 }
   
 .dropdown-content a {
@@ -267,10 +264,79 @@ div ul li a{
     text-align: center;
     margin-top: auto;
     padding: 0;
+  
 }
  
 .dropdown:hover .dropdown-content {
     display: block;
 } 
+.visited {
+    animation-name: visitedAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(175, 216, 248);
+    border-image: initial;
+}
+.path {
+    animation-name: pathAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    border-width: 1px;
+    border-style: solid;
+    border-color: yellow;
+    border-image: initial;
+}
+ @keyframes visitedAnimation{
+    0% {
+        transform: scale(0.3);
+        background-color: red;
+        border-radius: 100%;
+    }
  
+    50% {
+        background-color: yellow;
+    }
+    
+    75% {
+        transform: scale(1.2);
+        background-color: rgba(0, 217, 159, 0.75);
+    }
+    
+    100% {
+        transform: scale(1);
+        background-color: skyblue;
+    }
+}
+
+@keyframes pathAnimation{
+    0% {
+        transform: scale(0.3);
+        background-color: rgba(100, 0, 66, 0.75);
+        border-radius: 100%;
+    }
+ 
+    50% {
+        background-color: rgba(117, 104, 217, 0.75);
+    }
+    
+    75% {
+        transform: scale(1.2);
+        background-color: rgba(110, 217, 159, 0.75);
+    }
+    
+    100% {
+        transform: scale(1);
+        background-color: yellow;
+    }
+}
  

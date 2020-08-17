@@ -22,6 +22,8 @@ export default class AStar {
         this.buttonArray = buttonArray;
         this.origStartNode = startNode;
         this.isAlgorithmRunning = isAlgorithmRunning;
+
+
     }
 
     private async sleep(msec: number): Promise<unknown> { return new Promise(resolve => setTimeout(resolve, msec)); }
@@ -68,10 +70,15 @@ export default class AStar {
                 node.hScore = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
             }
             else {
-                node.hScore = (dx + dy);
+                let D = 1;
+                let D2 = Math.sqrt(2);
+                node.hScore = D * (dx + dy) + (D2 - 2 * D) * Math.min(dx, dy);
                 node.gScore = Math.max(dx1, dy1) + addr;
             }
-            btn.style.background = 'skyblue';
+            // btn.style.background = 'skyblue';
+            if (btn != this.origStartNode && btn != this.targetNode) {
+                btn.className = "visited";
+            }
             node.current = btn;
             node.parent = this.startNode;
             node.fScore = node.gScore + node.hScore;
@@ -81,19 +88,21 @@ export default class AStar {
     }
     private async CreatePath() {
         document.getElementById("PathFindingMessage").innerHTML = "Creating Path...";
-        await this.sleep(25);
-        this.targetNode.style.background = 'red';
-        this.origStartNode.style.background = 'green';
+        await this.sleep(5);
+
         if (this.startNode == this.targetNode) {
             this.Finish();
             return;
         }
         this.startNode = this.finalPathList.pop();
-        this.startNode.style.background = 'yellow';
+        if (this.startNode != this.targetNode) {
+            this.startNode.className = "path";
+        }
+        //this.origStartNode.style.background = 'green';
         this.CreatePath();
     }
     private async AstarSearch() {
-        await this.sleep(10);
+        await this.sleep(5);
         if (this.startNode == this.targetNode) {
             for (let i = this.closeList.length - 1; i >= 0; i--) {
                 let btn = this.closeList[i].current;
@@ -156,6 +165,11 @@ export default class AStar {
             this.startNode = btn.current;
             this.closeList.push(btn);
         }
+        else if (this.openList.length == 0) {
+            this.isAlgorithmRunning[0] = false;
+            document.getElementById("PathFindingMessage").innerHTML = "No route available!";
+            return;
+        }
         else {
             this.Finish();
             return;
@@ -169,7 +183,7 @@ export default class AStar {
         if (this.ifDijkstraOrGBF == "GBF") {
             document.getElementById("PathFindingMessage").innerHTML = "Visualizing GreedyBestFirst search...";
         }
-        if (this.ifDijkstraOrGBF == "Dijkstra") {
+        else if (this.ifDijkstraOrGBF == "Dijkstra") {
             document.getElementById("PathFindingMessage").innerHTML = "Visualizing Dijkstra search...";
         }
         else {

@@ -43,7 +43,9 @@ export default class FloodFill {
                 arr.push(this.buttonArray[r][c]);
                 this.visited.push(this.buttonArray[r][c]);
                 this.buttonArray[r][c].textContent = this.count.toString();
-                this.buttonArray[r][c].style.background = 'skyblue';
+                if (this.buttonArray[r][c] != this.startNode && this.buttonArray[r][c] != this.targetNode) {
+                    this.buttonArray[r][c].className = "visited";
+                }
             }
         }
         else {
@@ -55,7 +57,7 @@ export default class FloodFill {
     }
     FloodValues() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.sleep(25);
+            yield this.sleep(15);
             if (this.openList.length <= 0) {
                 this.isCreatePath = true;
                 this.CreatePath();
@@ -109,7 +111,9 @@ export default class FloodFill {
                         arr.push(this.buttonArray[r][c]);
                         this.visited.push(this.buttonArray[r][c]);
                         this.buttonArray[r][c].textContent = this.count.toString();
-                        this.buttonArray[r][c].style.background = 'skyblue';
+                        if (this.buttonArray[r][c] != this.startNode && this.buttonArray[r][c] != this.targetNode) {
+                            this.buttonArray[r][c].className = "visited";
+                        }
                     }
                 }
             }
@@ -121,7 +125,7 @@ export default class FloodFill {
     CreatePath() {
         return __awaiter(this, void 0, void 0, function* () {
             document.getElementById("PathFindingMessage").innerHTML = "Creating Path...";
-            yield this.sleep(25);
+            yield this.sleep(15);
             if (this.startNode == this.targetNode) {
                 this.Finish();
                 this.targetNode.style.background = 'red';
@@ -173,7 +177,14 @@ export default class FloodFill {
             if (arr.length != 0) {
                 arr.sort((a, b) => parseInt(a.textContent) - parseInt(b.textContent));
                 this.startNode = arr[0];
-                this.startNode.style.background = 'yellow';
+                // this.startNode.style.background = 'yellow';
+                if (this.startNode != this.targetNode)
+                    this.startNode.className = "path";
+            }
+            else if (arr.length == 0) {
+                this.isAlgorithmRunning[0] = false;
+                document.getElementById("PathFindingMessage").innerHTML = "No route available!";
+                return;
             }
             else {
                 this.Finish();

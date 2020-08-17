@@ -6,10 +6,6 @@ import FloodFill from './Pathfinding/FloodFill.js';
 import PrimsAlgorithm from './Maze/PrimsAlgorithm.js';
 import RecursiveDivision from './Maze/RecursiveDivision.js';
 let isAlgorithmRunning = new Array(1);
-let Home = document.getElementById("Home");
-let Games = document.getElementById("Games");
-let Portfolio = document.getElementById("Portfolio");
-let AlgorithmVisualization = document.getElementById("AlgorithmVisualization");
 /*---------------------------------------------------PATH FINDING-------------------------------------------------------*/
 let row = 20;
 let column = 61;
@@ -37,6 +33,7 @@ function ClearBoardPathFinding() {
         wallList = [];
         for (let i = 0; i < row; i++) {
             for (let j = 0; j < column; j++) {
+                buttonArray[i][j].className = " ";
                 buttonArray[i][j].style.background = 'white';
             }
         }
@@ -48,10 +45,10 @@ function ClearBoardPathFinding() {
 }
 document.getElementById("PathfindingAlgorithm").onclick = function () {
     if (!isAlgorithmRunning[0]) {
-        Games.style.background = "none";
-        Home.style.background = "none";
-        Portfolio.style.background = "none";
-        AlgorithmVisualization.style.background = "#1b9bff";
+        document.getElementById("Games").style.background = "none";
+        document.getElementById("Home").style.background = "none";
+        document.getElementById("Portfolio").style.background = "none";
+        document.getElementById("AlgorithmVisualization").style.background = "#1b9bff";
         document.getElementById("Snake").hidden = true;
         document.getElementById("Sorting").hidden = true;
         document.getElementById("DivPortfolio").hidden = true;
@@ -198,7 +195,7 @@ document.getElementById("ClearBoardPathFinding").onclick = function () {
 };
 document.getElementById("AStar").onclick = function () {
     selectPathFindingAlgorithm = PathFindingAlgorithm.Astar;
-    document.getElementById("VisualizePathFinding").textContent = 'Visualize (AStar)';
+    document.getElementById("VisualizePathFinding").textContent = 'Visualize (A*)';
 };
 document.getElementById("Dijkstra").onclick = function () {
     selectPathFindingAlgorithm = PathFindingAlgorithm.Dijkstra;
@@ -213,14 +210,15 @@ document.getElementById("FloodFill").onclick = function () {
     document.getElementById("VisualizePathFinding").textContent = 'Visualize (FloodFill)';
 };
 document.getElementById("VisualizePathFinding").onclick = function () {
-    if (!isAlgorithmRunning[0]) {
-        for (let i = 0; i < row; i++) {
-            for (let j = 0; j < column; j++) {
-                if (buttonArray[i][j].style.background == 'skyblue' || buttonArray[i][j].style.background == 'yellow') {
-                    buttonArray[i][j].style.background = 'white';
-                }
+    for (let i = 0; i < row; i++) {
+        for (let j = 0; j < column; j++) {
+            if (buttonArray[i][j].className == "visited" || buttonArray[i][j].className == "path") {
+                buttonArray[i][j].className = " ";
+                buttonArray[i][j].style.background = 'white';
             }
         }
+    }
+    if (!isAlgorithmRunning[0]) {
         switch (selectPathFindingAlgorithm) {
             case PathFindingAlgorithm.Astar:
                 const aStar = new AStar(buttonArray, wallList, startNode, targetNode, row, column, "Astar", isAlgorithmRunning);
@@ -282,10 +280,10 @@ function AddRandomRect(value) {
 }
 document.getElementById("SortingAlgorithm").onclick = function () {
     if (!isAlgorithmRunning[0]) {
-        Games.style.background = "none";
-        Home.style.background = "none";
-        Portfolio.style.background = "none";
-        AlgorithmVisualization.style.background = "#1b9bff";
+        document.getElementById("Games").style.background = "none";
+        document.getElementById("Home").style.background = "none";
+        document.getElementById("Portfolio").style.background = "none";
+        document.getElementById("AlgorithmVisualization").style.background = "#1b9bff";
         document.getElementById("Snake").hidden = true;
         document.getElementById("Sorting").hidden = false;
         document.getElementById("PathFinding").hidden = true;
@@ -412,6 +410,7 @@ document.getElementById("Home").onclick = function () {
 };
 document.getElementById("Portfolio").onclick = function () {
     if (!isAlgorithmRunning[0]) {
+        document.title = "Portfolio";
         document.getElementById("NavLogo").innerHTML = "Portfolio";
         document.getElementById("Snake").hidden = true;
         document.getElementById("Sorting").hidden = true;
@@ -419,11 +418,10 @@ document.getElementById("Portfolio").onclick = function () {
         document.getElementById("DivPortfolio").hidden = false;
         document.getElementById("PathFindingAlgorithm").hidden = true;
         document.getElementById("MidLogo").style.marginTop = "-1000px";
-        document.title = "Portfolio";
-        Games.style.background = "none";
-        Home.style.background = "none";
-        Portfolio.style.background = "#1b9bff";
-        AlgorithmVisualization.style.background = "none";
+        document.getElementById("Games").style.background = "none";
+        document.getElementById("Home").style.background = "none";
+        document.getElementById("Portfolio").style.background = "#1b9bff";
+        document.getElementById("AlgorithmVisualization").style.background = "none";
     }
 };
 //# sourceMappingURL=index.js.map
