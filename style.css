@@ -66,15 +66,16 @@ a:hover, #Home{
     }
 }
 @media (max-width: 852px){
-    .checkbtn{
+    .checkbtn, .logo{
         display: block;
     }
+    
     .dropdown:hover .dropdown-content {
         display: block;
         position: relative;
     } 
      
-    ul{
+    #NavUL{
         position: fixed;
         width: 100%;
         height: 100vh;
@@ -85,7 +86,7 @@ a:hover, #Home{
         text-align: center;
         transition: all 0.5s;
     }
-    nav ul li{
+    nav ul li {
         display: block;
     }
     nav ul li a {
@@ -98,13 +99,13 @@ a:hover, #Home{
     #check:checked ~ ul{
         left: 0;
     }
-    #img, #ID{
+    #img{
         display: block;
-        position: flex;
-        width: auto;
-        height: auto;
+        align-items: center;
     }
+   
 }
+
 #PathFinding{
     margin-top: 80px;
     text-transform: uppercase;
@@ -122,6 +123,7 @@ a:hover, #Home{
     text-transform: uppercase;
     color: white;
 }
+ 
 #Snake{
     margin-top: 80px;
     text-transform: uppercase;
@@ -254,8 +256,7 @@ div ul li a{
     position: absolute;
     background-color: lightgray;   
      z-index: 1;
-}
-  
+} 
 .dropdown-content a {
     border: 1px solid white;
     color: black;
@@ -266,10 +267,11 @@ div ul li a{
     padding: 0;
   
 }
- 
 .dropdown:hover .dropdown-content {
     display: block;
 } 
+
+
 .visited {
     animation-name: visitedAnimation;
     animation-duration: 1.5s;
@@ -278,9 +280,7 @@ div ul li a{
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-play-state: running;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(175, 216, 248);
+    border: 1px solid skyblue;
     border-image: initial;
 }
 .path {
@@ -291,52 +291,44 @@ div ul li a{
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-play-state: running;
-    border-width: 1px;
-    border-style: solid;
-    border-color: yellow;
+    border: 1px solid yellow;
     border-image: initial;
 }
- @keyframes visitedAnimation{
+@keyframes visitedAnimation{
     0% {
         transform: scale(0.3);
-        background-color: red;
+        background-color: violet;
         border-radius: 100%;
     }
- 
     50% {
-        background-color: yellow;
+        background-color: gray;
     }
-    
     75% {
         transform: scale(1.2);
-        background-color: rgba(0, 217, 159, 0.75);
+        background-color: blueviolet;
     }
-    
     100% {
         transform: scale(1);
         background-color: skyblue;
     }
 }
-
 @keyframes pathAnimation{
     0% {
         transform: scale(0.3);
-        background-color: rgba(100, 0, 66, 0.75);
+        background-color: violet;
         border-radius: 100%;
     }
- 
     50% {
-        background-color: rgba(117, 104, 217, 0.75);
+        background-color: gray;
     }
-    
     75% {
         transform: scale(1.2);
-        background-color: rgba(110, 217, 159, 0.75);
+        background-color: blueviolet;
     }
-    
     100% {
         transform: scale(1);
         background-color: yellow;
     }
 }
+
  
