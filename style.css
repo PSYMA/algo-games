@@ -359,7 +359,6 @@ body{
 @keyframes animate{
     0%, 100%{
         color:skyblue;
-        filter: blur(2px);
         text-shadow: 0 0 10px #00b3ff,
                      0 0 20px #00b3ff,
                     0 0 40px #00b3ff,
@@ -379,7 +378,6 @@ body{
     }
     5%, 95%{
         color: #111;
-        filter: blur(2px);
         text-shadow:  none;
     }
 }
