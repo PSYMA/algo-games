@@ -165,6 +165,7 @@ body{
 .Sorting a{
     color: white;
     font-size: 2vw;
+    text-transform: uppercase;
 }
 #SortingBoard{
     border: 1px solid white;
