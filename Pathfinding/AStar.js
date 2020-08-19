@@ -96,7 +96,7 @@ export default class AStar {
     CreatePath() {
         return __awaiter(this, void 0, void 0, function* () {
             document.getElementById("PathFindingMessage").innerHTML = "Creating Path...";
-            yield this.sleep(5);
+            yield this.sleep(10);
             if (this.startNode == this.targetNode) {
                 this.Finish();
                 return;
@@ -111,7 +111,7 @@ export default class AStar {
     }
     AstarSearch() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.sleep(5);
+            yield this.sleep(10);
             if (this.startNode == this.targetNode) {
                 for (let i = this.closeList.length - 1; i >= 0; i--) {
                     let btn = this.closeList[i].current;

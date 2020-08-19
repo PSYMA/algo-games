@@ -24,8 +24,8 @@ export default class QuickSort {
         return __awaiter(this, void 0, void 0, function* () {
             let item1 = items[leftIndex];
             let item2 = items[rightIndex];
-            this.ctx.clearRect(item1.x, item1.y, item1.width, item1.height);
-            this.ctx.clearRect(item2.x, item2.y, item2.width, item2.height);
+            this.ctx.clearRect(item1.x, 0, item1.width, 1000);
+            this.ctx.clearRect(item2.x, 0, item2.width, 1000);
             let temp = items[leftIndex].y;
             items[leftIndex].y = items[rightIndex].y;
             items[rightIndex].y = temp;

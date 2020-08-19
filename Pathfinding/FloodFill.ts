@@ -3,14 +3,14 @@ export default class FloodFill {
     private count: number = 1;
     private column: number = 0;
     private isCreatePath: boolean = false;
-    private startNode: HTMLDivElement = undefined;
-    private targetNode: HTMLDivElement = undefined;
-    private wallList: Array<HTMLDivElement> = [];
-    private buttonArray: Array<HTMLDivElement>[] = [];
-    private openList: Array<HTMLDivElement> = [];
-    private visited: Array<HTMLDivElement> = [];
+    private startNode: HTMLTableDataCellElement = undefined;
+    private targetNode: HTMLTableDataCellElement = undefined;
+    private wallList: Array<HTMLTableDataCellElement> = [];
+    private buttonArray: Array<HTMLTableDataCellElement>[] = [];
+    private openList: Array<HTMLTableDataCellElement> = [];
+    private visited: Array<HTMLTableDataCellElement> = [];
     private isAlgorithmRunning = new Array<boolean>(1);
-    constructor(buttonArray: Array<HTMLDivElement>[], wallList: Array<HTMLDivElement>, startNode: HTMLDivElement, targetNode: HTMLDivElement, row: number, column: number, isAlgorithmRunning: Array<boolean>) {
+    constructor(buttonArray: Array<HTMLTableDataCellElement>[], wallList: Array<HTMLTableDataCellElement>, startNode: HTMLTableDataCellElement, targetNode: HTMLTableDataCellElement, row: number, column: number, isAlgorithmRunning: Array<boolean>) {
         this.row = row;
         this.column = column;
         this.startNode = startNode;
@@ -28,7 +28,7 @@ export default class FloodFill {
         this.isAlgorithmRunning[0] = false;
 
     }
-    private PushNode(r: number, c: number, arr: HTMLDivElement[]) {
+    private PushNode(r: number, c: number, arr: HTMLTableDataCellElement[]) {
         if (!this.isCreatePath) {
             if (this.visited.indexOf(this.buttonArray[r][c]) == -1 && this.wallList.indexOf(this.buttonArray[r][c]) == -1) {
                 arr.push(this.buttonArray[r][c]);
@@ -47,7 +47,7 @@ export default class FloodFill {
         }
     }
     private async FloodValues() {
-        await this.sleep(15);
+        await this.sleep(25);
         if (this.openList.length <= 0) { this.isCreatePath = true; this.CreatePath(); return; }
         this.targetNode.textContent = '0';
         this.targetNode.style.background = 'red';
@@ -109,7 +109,7 @@ export default class FloodFill {
     }
     private async CreatePath() {
         document.getElementById("PathFindingMessage").innerHTML = "Creating Path...";
-        await this.sleep(15);
+        await this.sleep(10);
         if (this.startNode == this.targetNode) {
             this.Finish();
             this.targetNode.style.background = 'red';

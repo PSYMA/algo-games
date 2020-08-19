@@ -12,8 +12,8 @@ namespace Pathfinding {
         gScore: number,
         hScore: number,
         fScore: number,
-        parent: HTMLDivElement,
-        current: HTMLDivElement
+        parent: HTMLTableDataCellElement,
+        current: HTMLTableDataCellElement
     }
 }
 

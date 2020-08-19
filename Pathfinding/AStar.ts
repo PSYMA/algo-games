@@ -3,16 +3,16 @@ export default class AStar {
     private count: number = 1;
     private column: number = 0;
     private ifDijkstraOrGBF: string = "";
-    private startNode: HTMLDivElement = undefined;
-    private targetNode: HTMLDivElement = undefined;
-    private origStartNode: HTMLDivElement = undefined;
+    private startNode: HTMLTableDataCellElement = undefined;
+    private targetNode: HTMLTableDataCellElement = undefined;
+    private origStartNode: HTMLTableDataCellElement = undefined;
     private openList: Array<Pathfinding.INode> = [];
     private closeList: Array<Pathfinding.INode> = [];
-    private wallList: Array<HTMLDivElement> = [];
-    private finalPathList: Array<HTMLDivElement> = [];
-    private buttonArray: Array<HTMLDivElement>[] = [[], []];
+    private wallList: Array<HTMLTableDataCellElement> = [];
+    private finalPathList: Array<HTMLTableDataCellElement> = [];
+    private buttonArray: Array<HTMLTableDataCellElement>[] = [[], []];
     private isAlgorithmRunning = new Array<boolean>(1);
-    constructor(buttonArray: Array<HTMLDivElement>[], wallList: Array<HTMLDivElement>, startNode: HTMLDivElement, targetNode: HTMLDivElement, row: number, column: number, ifDijkstraOrGBF: string, isAlgorithmRunning: Array<boolean>) {
+    constructor(buttonArray: Array<HTMLTableDataCellElement>[], wallList: Array<HTMLTableDataCellElement>, startNode: HTMLTableDataCellElement, targetNode: HTMLTableDataCellElement, row: number, column: number, ifDijkstraOrGBF: string, isAlgorithmRunning: Array<boolean>) {
         this.row = row;
         this.column = column;
         this.wallList = wallList;
@@ -31,7 +31,7 @@ export default class AStar {
         document.getElementById("PathFindingMessage").innerHTML = "Path Created!";
         this.isAlgorithmRunning[0] = false;
     }
-    private GetIndex(item: HTMLDivElement) {
+    private GetIndex(item: HTMLTableDataCellElement) {
         for (let i = 0; i < this.row; i++) {
             for (let j = 0; j < this.column; j++) {
                 if (this.buttonArray[i][j] == item) {
@@ -41,7 +41,7 @@ export default class AStar {
         }
         return [-1, -1];
     }
-    private PushNode(btn: HTMLDivElement, addr: number) {
+    private PushNode(btn: HTMLTableDataCellElement, addr: number) {
         let find1 = this.wallList.find(x => x == btn);
         let find2 = this.closeList.find(x => x.current == btn);
         let find3 = this.openList.find(x => x.current == btn);
@@ -88,7 +88,7 @@ export default class AStar {
     }
     private async CreatePath() {
         document.getElementById("PathFindingMessage").innerHTML = "Creating Path...";
-        await this.sleep(5);
+        await this.sleep(10);
 
         if (this.startNode == this.targetNode) {
             this.Finish();
@@ -102,7 +102,7 @@ export default class AStar {
         this.CreatePath();
     }
     private async AstarSearch() {
-        await this.sleep(5);
+        await this.sleep(10);
         if (this.startNode == this.targetNode) {
             for (let i = this.closeList.length - 1; i >= 0; i--) {
                 let btn = this.closeList[i].current;

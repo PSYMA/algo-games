@@ -7,7 +7,7 @@ import PrimsAlgorithm from './Maze/PrimsAlgorithm.js';
 import RecursiveDivision from './Maze/RecursiveDivision.js';
 let isAlgorithmRunning = new Array(1);
 /*---------------------------------------------------PATH FINDING-------------------------------------------------------*/
-let row = 20;
+let row = 21;
 let column = 61;
 let addWall = false;
 let isAddGrid = false;
@@ -30,6 +30,7 @@ var PathFindingAlgorithm;
 let selectPathFindingAlgorithm = PathFindingAlgorithm.None;
 function ClearBoardPathFinding() {
     if (!isAlgorithmRunning[0]) {
+        document.getElementById("PathFindingMessage").innerHTML = "Welcome to Pathfinding Visualizer! please select an algorithm";
         wallList = [];
         for (let i = 0; i < row; i++) {
             for (let j = 0; j < column; j++) {
@@ -43,19 +44,8 @@ function ClearBoardPathFinding() {
         targetNode.style.background = 'red';
     }
 }
-document.getElementById("PathfindingAlgorithm").onclick = function () {
+function AddGrid() {
     if (!isAlgorithmRunning[0]) {
-        document.getElementById("Games").style.background = "none";
-        document.getElementById("Home").style.background = "none";
-        document.getElementById("Portfolio").style.background = "none";
-        document.getElementById("AlgorithmVisualization").style.background = "#1b9bff";
-        document.getElementById("Snake").hidden = true;
-        document.getElementById("Sorting").hidden = true;
-        document.getElementById("DivPortfolio").hidden = true;
-        document.getElementById("PathFinding").hidden = false;
-        document.getElementById("PathFindingAlgorithm").hidden = false;
-        document.getElementById("MidLogo").style.marginTop = "-1000px";
-        document.getElementById("NavLogo").innerHTML = "Pathfinding Visualizer";
         document.title = "Pathfinding Visualizer";
         // create Grid here
         if (!isAddGrid) {
@@ -66,60 +56,58 @@ document.getElementById("PathfindingAlgorithm").onclick = function () {
                 for (let j = 0; j < column; j++) {
                     let td = document.createElement("td");
                     let btn = document.createElement("div");
-                    btn.setAttribute("style", " background: white; font-size: 0px; color: black; width: 20px; height: 20px; ");
-                    btn.id = i.toString() + j.toString();
-                    btn.textContent = "-1";
+                    td.setAttribute("style", "background: white; font-size: 0px; color: black; width: 1.3vw; height: 1.4vw");
                     td.appendChild(btn);
                     tr.appendChild(td);
                     // assigning value to double dimensional array
                     if (!buttonArray[i]) {
                         buttonArray[i] = [];
                     }
-                    buttonArray[i][j] = btn;
+                    buttonArray[i][j] = td;
                     // assigning startnode and targetnode;
                     if (i == Math.floor(row / 2) && j == 5) {
-                        startNode = btn;
+                        startNode = td;
                     }
                     else if (i == Math.floor(row / 2) && j == column - 5) {
-                        targetNode = btn;
+                        targetNode = td;
                     }
-                    btn.ondragstart = function () {
+                    td.ondragstart = function () {
                         return false;
                     };
-                    btn.ondrop = function () {
+                    td.ondrop = function () {
                         return false;
                     };
-                    btn.onmousedown = function () {
+                    td.onmousedown = function () {
                         if (!isAlgorithmRunning[0]) {
-                            if (btn.style.background == 'black') {
-                                wallList.splice(wallList.indexOf(btn), 1);
-                                btn.style.background = 'white';
+                            if (td.style.background == 'black') {
+                                wallList.splice(wallList.indexOf(td), 1);
+                                td.style.background = 'white';
                                 removeWall = true;
                             }
-                            else if (btn.style.background == 'white') {
-                                btn.style.background = 'black';
+                            else if (td.style.background == 'white') {
+                                td.style.background = 'black';
                                 addWall = true;
-                                if (wallList.indexOf(btn) == -1) {
-                                    wallList.push(btn);
+                                if (wallList.indexOf(td) == -1) {
+                                    wallList.push(td);
                                 }
                             }
-                            else if (btn.style.background == 'green') {
+                            else if (td.style.background == 'green') {
                                 moveStartNode = true;
                             }
-                            else if (btn.style.background == 'red') {
+                            else if (td.style.background == 'red') {
                                 moveTargetNode = true;
                             }
                         }
                     };
-                    btn.onmouseup = function () {
+                    td.onmouseup = function () {
                         addWall = false;
                         removeWall = false;
-                        if (moveStartNode && btn.style.background != 'black' && btn != targetNode) {
+                        if (moveStartNode && td.style.background != 'black' && td != targetNode) {
                             if (wallList.find(x => x == startNode)) {
                                 wallList.splice(wallList.indexOf(startNode), 1);
                             }
                             startNode.style.background = 'white';
-                            startNode = btn;
+                            startNode = td;
                             startNode.style.background = 'green';
                         }
                         else {
@@ -127,12 +115,12 @@ document.getElementById("PathfindingAlgorithm").onclick = function () {
                                 startNode = prevDivBtn;
                             }
                         }
-                        if (moveTargetNode && btn.style.background != 'black' && btn != startNode) {
+                        if (moveTargetNode && td.style.background != 'black' && td != startNode) {
                             if (wallList.find(x => x == targetNode)) {
                                 wallList.splice(wallList.indexOf(targetNode), 1);
                             }
                             targetNode.style.background = 'white';
-                            targetNode = btn;
+                            targetNode = td;
                             targetNode.style.background = 'red';
                         }
                         else {
@@ -143,41 +131,41 @@ document.getElementById("PathfindingAlgorithm").onclick = function () {
                         moveStartNode = false;
                         moveTargetNode = false;
                     };
-                    btn.onmouseover = function () {
+                    td.onmouseover = function () {
                         if (addWall) {
-                            if (btn.style.background == 'white') {
-                                btn.style.background = 'black';
-                                if (wallList.indexOf(btn) == -1) {
-                                    wallList.push(btn);
+                            if (td.style.background == 'white') {
+                                td.style.background = 'black';
+                                if (wallList.indexOf(td) == -1) {
+                                    wallList.push(td);
                                 }
                             }
                         }
                         else if (removeWall) {
-                            if (btn.style.background == 'black') {
-                                wallList.splice(wallList.indexOf(btn), 1);
-                                btn.style.background = 'white';
+                            if (td.style.background == 'black') {
+                                wallList.splice(wallList.indexOf(td), 1);
+                                td.style.background = 'white';
                             }
                         }
                     };
-                    btn.onmouseleave = function () {
-                        if (btn != targetNode && btn.style.background != 'black' && moveStartNode) {
-                            prevDivBtn = btn;
+                    td.onmouseleave = function () {
+                        if (td != targetNode && td.style.background != 'black' && moveStartNode) {
+                            prevDivBtn = td;
                         }
-                        else if (btn != startNode && btn.style.background != 'black' && moveTargetNode) {
-                            prevDivBtn = btn;
+                        else if (td != startNode && td.style.background != 'black' && moveTargetNode) {
+                            prevDivBtn = td;
                         }
                     };
-                    btn.onmouseenter = function () {
-                        if (moveStartNode && btn.style.background != 'black' && btn != targetNode) {
-                            btn.style.background = 'green';
+                    td.onmouseenter = function () {
+                        if (moveStartNode && td.style.background != 'black' && td != targetNode) {
+                            td.style.background = 'green';
                         }
-                        if (moveTargetNode && btn.style.background != 'black' && btn != startNode) {
-                            btn.style.background = 'red';
+                        if (moveTargetNode && td.style.background != 'black' && td != startNode) {
+                            td.style.background = 'red';
                         }
-                        if (prevDivBtn != undefined && moveStartNode && btn != targetNode && btn.style.background != "black") {
+                        if (prevDivBtn != undefined && moveStartNode && td != targetNode && td.style.background != "black") {
                             prevDivBtn.style.background = 'white';
                         }
-                        if (prevDivBtn != undefined && moveTargetNode && btn != startNode && btn.style.background != "black") {
+                        if (prevDivBtn != undefined && moveTargetNode && td != startNode && td.style.background != "black") {
                             prevDivBtn.style.background = 'white';
                         }
                     };
@@ -188,37 +176,17 @@ document.getElementById("PathfindingAlgorithm").onclick = function () {
             targetNode.style.background = 'red';
         }
     }
-};
-document.getElementById("ClearBoardPathFinding").onclick = function () {
-    document.getElementById("PathFindingMessage").innerHTML = "Welcome to pathfinding visualizer! please select an algorithm";
-    ClearBoardPathFinding();
-};
-document.getElementById("AStar").onclick = function () {
-    selectPathFindingAlgorithm = PathFindingAlgorithm.Astar;
-    document.getElementById("VisualizePathFinding").textContent = 'Visualize (A*)';
-};
-document.getElementById("Dijkstra").onclick = function () {
-    selectPathFindingAlgorithm = PathFindingAlgorithm.Dijkstra;
-    document.getElementById("VisualizePathFinding").textContent = 'Visualize (Dijkstra)';
-};
-document.getElementById("GreedyBestFirst").onclick = function () {
-    selectPathFindingAlgorithm = PathFindingAlgorithm.GreedyBestFirst;
-    document.getElementById("VisualizePathFinding").textContent = 'Visualize (GreedyBestFirst)';
-};
-document.getElementById("FloodFill").onclick = function () {
-    selectPathFindingAlgorithm = PathFindingAlgorithm.Floodfill;
-    document.getElementById("VisualizePathFinding").textContent = 'Visualize (FloodFill)';
-};
-document.getElementById("VisualizePathFinding").onclick = function () {
-    for (let i = 0; i < row; i++) {
-        for (let j = 0; j < column; j++) {
-            if (buttonArray[i][j].className == "visited" || buttonArray[i][j].className == "path") {
-                buttonArray[i][j].className = " ";
-                buttonArray[i][j].style.background = 'white';
+}
+function VisualizePathfinding() {
+    if (!isAlgorithmRunning[0]) {
+        for (let i = 0; i < row; i++) {
+            for (let j = 0; j < column; j++) {
+                if (buttonArray[i][j].className == "visited" || buttonArray[i][j].className == "path") {
+                    buttonArray[i][j].className = " ";
+                    buttonArray[i][j].style.background = 'white';
+                }
             }
         }
-    }
-    if (!isAlgorithmRunning[0]) {
         switch (selectPathFindingAlgorithm) {
             case PathFindingAlgorithm.Astar:
                 const aStar = new AStar(buttonArray, wallList, startNode, targetNode, row, column, "Astar", isAlgorithmRunning);
@@ -242,7 +210,7 @@ document.getElementById("VisualizePathFinding").onclick = function () {
                 break;
         }
     }
-};
+}
 /*-----------------------------------------------------SORTING-----------------------------------------------------------*/
 var SortingAlgorithm;
 (function (SortingAlgorithm) {
@@ -257,8 +225,10 @@ let ctx = canvas.getContext("2d");
 let selectSortingAlgorithm = SortingAlgorithm.None;
 let slider = document.getElementById("Slider");
 function AddRandomRect(value) {
+    let canvasWrapperRect = document.getElementById("Canvas-Wrapper").getBoundingClientRect();
+    canvas.width = canvasWrapperRect.width;
     arrayElements = [];
-    let width = Math.floor(canvas.width / value);
+    let width = Math.round(canvas.width / value);
     function Node() { }
     for (let x = 0; x < canvas.width; x += width) {
         let height = Math.floor(Math.random() * canvas.height);
@@ -278,42 +248,7 @@ function AddRandomRect(value) {
         arrayElements.push(node);
     }
 }
-document.getElementById("SortingAlgorithm").onclick = function () {
-    if (!isAlgorithmRunning[0]) {
-        document.getElementById("Games").style.background = "none";
-        document.getElementById("Home").style.background = "none";
-        document.getElementById("Portfolio").style.background = "none";
-        document.getElementById("AlgorithmVisualization").style.background = "#1b9bff";
-        document.getElementById("Snake").hidden = true;
-        document.getElementById("Sorting").hidden = false;
-        document.getElementById("PathFinding").hidden = true;
-        document.getElementById("DivPortfolio").hidden = true;
-        document.getElementById("PathFindingAlgorithm").hidden = true;
-        document.getElementById("MidLogo").style.marginTop = "-1000px";
-        document.getElementById("ArraySize").innerHTML = slider.value.toString();
-        document.getElementById("NavLogo").innerHTML = "Sorting Visualizer";
-        document.title = "Sorting Visualizer";
-        // create Board here
-        canvas.width = 0;
-        canvas.height = 0;
-        canvas.width = 1300;
-        canvas.height = 470;
-        AddRandomRect(slider.value);
-    }
-};
-// document.getElementById("MergeSort").onclick = function () {
-//     document.getElementById("VisualizeSorting").textContent = 'Visualize (Merge Sort)';
-//     selectSortingAlgorithm = SortingAlgorithm.MergeSort;
-// }
-document.getElementById("BubbleSort").onclick = function () {
-    document.getElementById("VisualizeSorting").textContent = 'Visualize (Bubble Sort)';
-    selectSortingAlgorithm = SortingAlgorithm.BubbleSort;
-};
-document.getElementById("QuickSort").onclick = function () {
-    document.getElementById("VisualizeSorting").textContent = 'Visualize (Quick Sort)';
-    selectSortingAlgorithm = SortingAlgorithm.QuickSort;
-};
-document.getElementById("VisualizeSorting").onclick = function () {
+function VisualizeSorting() {
     if (!isAlgorithmRunning[0]) {
         switch (selectSortingAlgorithm) {
             case SortingAlgorithm.BubbleSort:
@@ -335,6 +270,87 @@ document.getElementById("VisualizeSorting").onclick = function () {
             slider.disabled = true;
         }
     }
+}
+/*------------------------------------------------------MAZE-------------------------------------------------------------*/
+document.getElementById("PrimsAlgorithm").onclick = function () {
+    if (!isAlgorithmRunning[0]) {
+        ClearBoardPathFinding();
+        const randomizedPrimsAlgorithm = new PrimsAlgorithm(buttonArray, wallList, startNode, targetNode, row, column, isAlgorithmRunning);
+        isAlgorithmRunning[0] = true;
+        randomizedPrimsAlgorithm.StartRandomizedPrims();
+    }
+};
+document.getElementById("RecursiveDivision").onclick = function () {
+    if (!isAlgorithmRunning[0]) {
+        ClearBoardPathFinding();
+        const recursiveDivision = new RecursiveDivision(buttonArray, wallList, startNode, targetNode, row, column, isAlgorithmRunning);
+        isAlgorithmRunning[0] = true;
+        recursiveDivision.StartRecursiveDivision();
+    }
+};
+/*---------------------------------------------------CONTENT CLICK-------------------------------------------------------*/
+document.getElementById("PortfolioClick").onclick = function () {
+    if (!isAlgorithmRunning[0]) {
+        document.getElementById("Logo").innerHTML = "Portfolio";
+        document.getElementById("Sorting").hidden = true;
+        document.getElementById("Portfolio").hidden = false;
+        document.getElementById("HomeDisplay").style.marginTop = "-1000px";
+        document.getElementById("Pathfinding").hidden = true;
+    }
+};
+document.getElementById("A*").onclick = function () {
+    selectPathFindingAlgorithm = PathFindingAlgorithm.Astar;
+    document.getElementById("VisualizePathFinding").textContent = 'Visualize (A*)';
+};
+document.getElementById("Dijkstra").onclick = function () {
+    selectPathFindingAlgorithm = PathFindingAlgorithm.Dijkstra;
+    document.getElementById("VisualizePathFinding").textContent = 'Visualize (Dijkstra)';
+};
+document.getElementById("GreedyBestFirst").onclick = function () {
+    selectPathFindingAlgorithm = PathFindingAlgorithm.GreedyBestFirst;
+    document.getElementById("VisualizePathFinding").textContent = 'Visualize (Greedy Best First)';
+};
+document.getElementById("FloodFill").onclick = function () {
+    selectPathFindingAlgorithm = PathFindingAlgorithm.Floodfill;
+    document.getElementById("VisualizePathFinding").textContent = 'Visualize (Flood Fill)';
+};
+document.getElementById("VisualizePathFinding").onclick = function () {
+    VisualizePathfinding();
+};
+document.getElementById("PathfindingClearBoard").onclick = function () {
+    ClearBoardPathFinding();
+};
+document.getElementById("PathfindingVisualizerClick").onclick = function () {
+    if (!isAlgorithmRunning[0]) {
+        document.getElementById("Logo").innerHTML = "Pathfinding Visualizer";
+        document.getElementById("Sorting").hidden = true;
+        document.getElementById("Portfolio").hidden = true;
+        document.getElementById("HomeDisplay").style.marginTop = "-1000px";
+        document.getElementById("Pathfinding").hidden = false;
+        AddGrid();
+    }
+};
+document.getElementById("SortingVisualizerClick").onclick = function () {
+    if (!isAlgorithmRunning[0]) {
+        document.getElementById("Logo").innerHTML = "Sorting Visualizer";
+        document.getElementById("Sorting").hidden = false;
+        document.getElementById("Portfolio").hidden = true;
+        document.getElementById("HomeDisplay").style.marginTop = "-1000px";
+        document.getElementById("Pathfinding").hidden = true;
+        ctx.clearRect(0, 0, 1000, 1000);
+        AddRandomRect(slider.value);
+    }
+};
+document.getElementById("BubbleSort").onclick = function () {
+    document.getElementById("VisualizeSorting").textContent = 'Visualize (Bubble Sort)';
+    selectSortingAlgorithm = SortingAlgorithm.BubbleSort;
+};
+document.getElementById("QuickSort").onclick = function () {
+    document.getElementById("VisualizeSorting").textContent = 'Visualize (Quick Sort)';
+    selectSortingAlgorithm = SortingAlgorithm.QuickSort;
+};
+document.getElementById("VisualizeSorting").onclick = function () {
+    VisualizeSorting();
 };
 document.getElementById("ResetArray").onclick = function () {
     if (!isAlgorithmRunning[0]) {
@@ -345,83 +361,13 @@ document.getElementById("ResetArray").onclick = function () {
 };
 document.getElementById("Slider").oninput = function () {
     if (!isAlgorithmRunning[0]) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        AddRandomRect(slider.value);
         document.getElementById("ArraySize").innerHTML = slider.value.toString();
+        ctx.clearRect(0, 0, 1000, 1000);
+        AddRandomRect(slider.value);
     }
 };
-/*-----------------------------------------------------SNAKE GAME--------------------------------------------------------*/
-/*let snake = new Snake(undefined, undefined, undefined, undefined);
-document.getElementById("SnakeGame").onclick = function () {
-    if (!isAlgorithmRunning[0]) {
-        Games.style.background = "#1b9bff";
-        Home.style.background = "none";
-        Portfolio.style.background = "none";
-        AlgorithmVisualization.style.background = "none";
-        document.getElementById("Snake").hidden = false;
-        document.getElementById("Sorting").hidden = true;
-        document.getElementById("PathFinding").hidden = true;
-        document.getElementById("DivPortfolio").hidden = true;
-        document.getElementById("PathFindingAlgorithm").hidden = true;
-        let canvas: any = document.getElementById("SnakeBoard");
-        let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
-        let gameWidth = canvas.width;
-        let gameHeight = canvas.height;
-        snake = new Snake(ctx, gameWidth, gameHeight, isAlgorithmRunning);
-        isAlgorithmRunning[0] = false;
-
-    }
-}
-document.getElementById("Play").onclick = function () {
-    snake.Play();
-}
-document.getElementById("Stop").onclick = function () {
-    isAlgorithmRunning[0] = false;
-}*/
-/*------------------------------------------------------MAZE-------------------------------------------------------------*/
-document.getElementById("Prims").onclick = function () {
-    if (!isAlgorithmRunning[0]) {
-        ClearBoardPathFinding();
-        const randomizedPrimsAlgorithm = new PrimsAlgorithm(buttonArray, wallList, startNode, targetNode, row, column, isAlgorithmRunning);
-        isAlgorithmRunning[0] = true;
-        randomizedPrimsAlgorithm.StartRandomizedPrims();
-    }
-};
-document.getElementById("Recursive").onclick = function () {
-    if (!isAlgorithmRunning[0]) {
-        ClearBoardPathFinding();
-        const recursiveDivision = new RecursiveDivision(buttonArray, wallList, startNode, targetNode, row, column, isAlgorithmRunning);
-        isAlgorithmRunning[0] = true;
-        recursiveDivision.StartRecursiveDivision();
-    }
-};
-/*-------------------------------------------------CONTENT CLICK----------------------------------------------------------*/
-document.getElementById("Games").onclick = function () {
-};
-document.getElementById("Home").onclick = function () {
-    isAlgorithmRunning[0] = false;
-    document.getElementById("NavLogo").innerHTML = "";
-    document.getElementById("Sorting").hidden = true;
-    document.getElementById("PathFinding").hidden = true;
-    document.getElementById("PathFindingAlgorithm").hidden = true;
-    document.getElementById("Snake").hidden = true;
+document.getElementById("HomeClick").onclick = function () {
     location.reload(true);
     return false;
-};
-document.getElementById("Portfolio").onclick = function () {
-    if (!isAlgorithmRunning[0]) {
-        document.title = "Portfolio";
-        document.getElementById("NavLogo").innerHTML = "Portfolio";
-        document.getElementById("Snake").hidden = true;
-        document.getElementById("Sorting").hidden = true;
-        document.getElementById("PathFinding").hidden = true;
-        document.getElementById("DivPortfolio").hidden = false;
-        document.getElementById("PathFindingAlgorithm").hidden = true;
-        document.getElementById("MidLogo").style.marginTop = "-1000px";
-        document.getElementById("Games").style.background = "none";
-        document.getElementById("Home").style.background = "none";
-        document.getElementById("Portfolio").style.background = "#1b9bff";
-        document.getElementById("AlgorithmVisualization").style.background = "none";
-    }
 };
 //# sourceMappingURL=index.js.map

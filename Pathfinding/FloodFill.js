@@ -57,7 +57,7 @@ export default class FloodFill {
     }
     FloodValues() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.sleep(15);
+            yield this.sleep(25);
             if (this.openList.length <= 0) {
                 this.isCreatePath = true;
                 this.CreatePath();
@@ -125,7 +125,7 @@ export default class FloodFill {
     CreatePath() {
         return __awaiter(this, void 0, void 0, function* () {
             document.getElementById("PathFindingMessage").innerHTML = "Creating Path...";
-            yield this.sleep(15);
+            yield this.sleep(10);
             if (this.startNode == this.targetNode) {
                 this.Finish();
                 this.targetNode.style.background = 'red';

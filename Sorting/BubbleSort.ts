@@ -14,8 +14,8 @@ export default class BubbleSort {
             for (let j = 0; j < this.arr.length; j++) {
                 if (this.arr[i].height < this.arr[j].height) {
                     await this.sleep(0);
-                    this.ctx.clearRect(this.arr[j].x, this.arr[j].y, this.arr[j].width, this.arr[j].height);
-                    this.ctx.clearRect(this.arr[i].x, this.arr[i].y, this.arr[i].width, this.arr[i].height);
+                    this.ctx.clearRect(this.arr[j].x, 0, this.arr[j].width, 1000);
+                    this.ctx.clearRect(this.arr[i].x, 0, this.arr[i].width, 1000);
 
                     let tmp: any = this.arr[i].y;
                     this.arr[i].y = this.arr[j].y;

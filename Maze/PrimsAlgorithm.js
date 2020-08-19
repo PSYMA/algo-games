@@ -91,7 +91,7 @@ export default class PrimsAlgorithm {
                 this.otherWallList.push(btn2);
                 btn2.style.background = 'white';
             }
-            if (this.visited.length >= 310) {
+            if (this.visited.length >= 341) {
                 document.getElementById("PathFindingMessage").innerHTML = "Maze Created!";
                 this.Finish();
                 for (let i = 0; i < this.row; i++) {
