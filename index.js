@@ -291,6 +291,7 @@ document.getElementById("RecursiveDivision").onclick = function () {
 /*---------------------------------------------------CONTENT CLICK-------------------------------------------------------*/
 document.getElementById("PortfolioClick").onclick = function () {
     if (!isAlgorithmRunning[0]) {
+        document.title = "Portfolio";
         document.getElementById("Logo").innerHTML = "Portfolio";
         document.getElementById("Sorting").hidden = true;
         document.getElementById("Portfolio").hidden = false;
@@ -322,6 +323,7 @@ document.getElementById("PathfindingClearBoard").onclick = function () {
 };
 document.getElementById("PathfindingVisualizerClick").onclick = function () {
     if (!isAlgorithmRunning[0]) {
+        document.title = "Pathfinding Visualizer";
         document.getElementById("Logo").innerHTML = "Pathfinding Visualizer";
         document.getElementById("Sorting").hidden = true;
         document.getElementById("Portfolio").hidden = true;
@@ -332,6 +334,7 @@ document.getElementById("PathfindingVisualizerClick").onclick = function () {
 };
 document.getElementById("SortingVisualizerClick").onclick = function () {
     if (!isAlgorithmRunning[0]) {
+        document.title = "Sorting Visualizer";
         document.getElementById("Logo").innerHTML = "Sorting Visualizer";
         document.getElementById("Sorting").hidden = false;
         document.getElementById("Portfolio").hidden = true;

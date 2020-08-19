@@ -23,7 +23,7 @@ body{
 }
 .Menu .Logo{
     color: white;
-    font-size: 2.5vw;
+    font-size: 2vw;
     line-height: 80px;
     padding: 0 100px;
     font-weight: bold;
@@ -359,7 +359,6 @@ body{
 @keyframes animate{
     0%, 100%{
         color:skyblue;
-        filter: blur(2px);
         text-shadow: 0 0 10px #00b3ff,
                      0 0 20px #00b3ff,
                     0 0 40px #00b3ff,
@@ -379,12 +378,10 @@ body{
     }
     5%, 95%{
         color: #111;
-        filter: blur(2px);
         text-shadow:  none;
     }
 }
-
-
+ 
 .visited {
     animation-name: visitedAnimation;
     animation-duration: 1.5s;
