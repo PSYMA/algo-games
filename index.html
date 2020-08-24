@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>Home</title>
@@ -53,7 +53,8 @@
             </li>
             <li><a href="#/" id="VisualizeSorting">Visualize</a></li>
             <li><a href="#/" id="ResetArray">Reset Array</a></li>
-            <input style="display: inline-block; width: 10vw; height: 1vw;" type="range" min="10" value="10" max="500" class="slider" id="Slider">
+            <input style="display: inline-block; width: 10vw; height: 1vw;" type="range" min="10" value="10" max="500"
+                class="slider" id="Slider">
             <p id="ArraySize" style="font-size: 1.5vw; display: inline-block; color: white">10</p>
         </ul>
         <h1 id="SortingMessage">Welcome to sorting visualizer! please select an algorithm </h1>
@@ -63,7 +64,7 @@
     </div>
     <div class="Pathfinding" id="Pathfinding" hidden="true">
         <div class="PathfindingInfo">
-            <div style="background: yellow;"></div>
+            <div style="background: yellow;" class="path"></div>
             <label>Path</label>
             <div style="background: black;"></div>
             <label>Wall</label>
@@ -120,17 +121,30 @@
                 As part of my goal I'm currently working to make myself a fine developer hoping to get my dream job as a
                 software developer soon.
             </p><br>
-            <li style="margin-left: 10%; color: rgb(232, 230, 227);"><label style="font-size: 1.5vw; display: inline-block;">Email:
-                    <a style="color: #004daa; font-size: 1.5vw; text-align: center; display: inline-block;">
-                        rickbengimeda@gmail.com
-                    </a>
-            </li>
-            <li style="margin-left: 10%; color: rgb(232, 230, 227);"><label style="font-size: 1.5vw; display: inline-block;">GitHub profile: </label> <a href="https://github.com/PSYMA" target="_blank" style="color: #004daa; font-size: 1.5vw; text-align: center; display: inline-block;">
-                    link
+            <li style="margin-left: 10%; color: rgb(232, 230, 227);">
+                <label style="font-size: 1.5vw; display: inline-block;">
+                    <i class="fa fa-google" style="color: white;font-size: 1.5vw;"> : </i>
+                </label>
+                <a style="color: #004daa; font-size: 1.5vw; text-align: center; display: inline-block;">
+                    rickbengimeda@gmail.com
                 </a>
             </li>
-            <li style="margin-left: 10%; color: rgb(232, 230, 227);"><label style="font-size: 1.5vw; display: inline-block;">facebook profile: </label> <a href="https://web.facebook.com/jpakingpotomen" target="_blank" style="color: #004daa; font-size: 1.5vw; text-align: center; display: inline-block;">
-                    link
+            <li style="margin-left: 10%; color: rgb(232, 230, 227);">
+                <label style="font-size: 1.5vw; display: inline-block;">
+                    <i class="fa fa-github" style="color: white;font-size: 1.5vw;"> : </i>
+                </label>
+                <a href="https://github.com/PSYMA" target="_blank"
+                    style="color: #004daa; font-size: 1.5vw; text-align: center; display: inline-block;">
+                    github.com
+                </a>
+            </li>
+            <li style="margin-left: 10%; color: rgb(232, 230, 227);">
+                <label style="font-size: 1.5vw; display: inline-block;">
+                    <i class="fa fa-facebook-square" style="color: white;font-size: 1.5vw;"> : </i>
+                </label>
+                <a href="https://web.facebook.com/jpakingpotomen" target="_blank"
+                    style="color: #004daa; font-size: 1.5vw; text-align: center; display: inline-block;">
+                    facebook.com
                 </a>
             </li>
         </div>
@@ -145,7 +159,8 @@
                     will
                     just need
                     to put everything in order for you to win.
-                    <a href="https://github.com/PSYMA/Puzzle-Game-CSharp-WPF" target="_blank" style="color: #004daa; ">source code</a>
+                    <a href="https://github.com/PSYMA/Puzzle-Game-CSharp-WPF" target="_blank"
+                        style="color: #004daa; ">source code</a>
                 </p>
             </div>
             <div>
@@ -159,7 +174,8 @@
                     are
                     the
                     same.
-                    <a href="https://github.com/PSYMA/TIC-TAC-TOE-CSharp-WPF" target="_blank" style="color: #004daa;">source code</a>
+                    <a href="https://github.com/PSYMA/TIC-TAC-TOE-CSharp-WPF" target="_blank"
+                        style="color: #004daa;">source code</a>
                 </p>
             </div>
             <div>
@@ -171,7 +187,8 @@
                     pairing
                     its cell to the other cell, make mistakes and it will reduce your HP when HP goes to zero you
                     lose.
-                    <a href="https://github.com/PSYMA/The-Matching-Game-CSharp-WPF-" target="_blank" style="color: #004daa;">source code</a>
+                    <a href="https://github.com/PSYMA/The-Matching-Game-CSharp-WPF-" target="_blank"
+                        style="color: #004daa;">source code</a>
                 </p>
             </div>
             <div>
@@ -179,9 +196,11 @@
                 <img src="Assets/Thumbnails/battleThumbNail.png" id="img">
                 <p>
                     This Hidden Battle Game is my final project during my C# language course in college, The game is
-                    derived from this board game <a href="https://www.youtube.com/watch?v=4gHJlYLomrs" target="_blank" style="color: #004daa;">link</a>.
+                    derived from this board game <a href="https://www.youtube.com/watch?v=4gHJlYLomrs" target="_blank"
+                        style="color: #004daa;">link</a>.
                     this is the most challenging project I created in C# so far took me a lot of time to finished.
-                    <a href="https://github.com/PSYMA/The-Hidden-Game-Battle-CSharp-WPF-" target="_blank" style="color: #004daa;">source
+                    <a href="https://github.com/PSYMA/The-Hidden-Game-Battle-CSharp-WPF-" target="_blank"
+                        style="color: #004daa;">source
                         code</a>
                 </p>
             </div>
@@ -192,7 +211,8 @@
                     This is one of my very first project back in my early days in programming C language in particular,
                     The is game quite simple all you need to do is to control the paddle and catch the ball, make sure
                     to catch the ball otherwise you will lose. clear all stars and you win.
-                    <a href="https://github.com/PSYMA/Ping-pong-Game-simple-Cpp-Console" target="_blank" style="color: #004daa;">source code</a>
+                    <a href="https://github.com/PSYMA/Ping-pong-Game-simple-Cpp-Console" target="_blank"
+                        style="color: #004daa;">source code</a>
                 </p>
             </div>
             <div>
@@ -202,7 +222,8 @@
                     This Simple Library System is my final project during my C language course. I struggle a lot during
                     my creation of this project, I am still a newbie at that time. The project is quite easy: student
                     borrow books as well return it.
-                    <a href="https://github.com/PSYMA/Library-System-simple-C-Cpp-Console" target="_blank" style="color: #004daa;">source code</a>
+                    <a href="https://github.com/PSYMA/Library-System-simple-C-Cpp-Console" target="_blank"
+                        style="color: #004daa;">source code</a>
                 </p>
             </div>
             <div>
@@ -212,7 +233,8 @@
                     This Library System is the upgraded version of my Simple Library System in C++,
                     it's integrated with SQLite and offers a couple of features and it's graphical and user friendly.
                     I decided to create this project to expose myself in a database project.
-                    <a href="https://github.com/PSYMA/Library-System-CSharp-WPF" target="_blank" style="color: #004daa;">source code</a>
+                    <a href="https://github.com/PSYMA/Library-System-CSharp-WPF" target="_blank"
+                        style="color: #004daa;">source code</a>
                 </p>
             </div>
         </div>
@@ -250,7 +272,6 @@
             <span>s</span>
         </h1>
     </div>
-
     <script type="module" src="index.js"> </script>
 
 </body>

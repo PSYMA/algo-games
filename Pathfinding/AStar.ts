@@ -70,9 +70,7 @@ export default class AStar {
                 node.hScore = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
             }
             else {
-                let D = 1;
-                let D2 = Math.sqrt(2);
-                node.hScore = D * (dx + dy) + (D2 - 2 * D) * Math.min(dx, dy);
+                node.hScore = dx + dy;
                 node.gScore = dx1 + dy1;
             }
             // btn.style.background = 'skyblue';

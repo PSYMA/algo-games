@@ -408,6 +408,7 @@ body{
     animation-play-state: running;
     border: 1px solid yellow;
     border-image: initial;
+    animation: pathAnimation 3s linear infinite; 
 }
 @keyframes visitedAnimation{
     0% {
@@ -429,6 +430,7 @@ body{
     }
 }
 @keyframes pathAnimation{
+    
     0% {
         transform: scale(0.3);
         background-color: violet;

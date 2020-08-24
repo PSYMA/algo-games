@@ -38,7 +38,6 @@ export default class Snake {
 
         this.Play();
         this.Stop();
-
     }
 
     private async sleep(msec: number) { return new Promise(resolve => setTimeout(resolve, msec)); }
