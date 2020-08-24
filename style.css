@@ -286,8 +286,9 @@ body{
     background: black;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1%
+    margin-top: 1%;
 }
+ 
 
 /* Portfolio */
 .Portfolio a:hover{
@@ -379,22 +380,6 @@ body{
 @keyframes animate{
     0%, 100%{
         color:gold;
-        text-shadow: 0 0 10px   #00b3ff,
-                     0 0 20px   #00b3ff,
-                     0 0 40px   #00b3ff,
-                     0 0 80px   #00b3ff,
-                     0 0 120px  #00b3ff,
-                     0 0 200px  #00b3ff,
-                     0 0 300px  #00b3ff,
-                     0 0 400px  #00b3ff,
-                     0 0 500px  #00b3ff,
-                     0 0 500px  #00b3ff,
-                     0 0 500px  #00b3ff,
-                     0 0 500px  #00b3ff,
-                     0 0 500px  #00b3ff,
-                     0 0 500px  #00b3ff,
-                     0 0 500px  #00b3ff,
-               
     }
     5%, 95%{
         color: slategray;
@@ -429,6 +414,7 @@ body{
         transform: scale(0.3);
         background-color: violet;
         border-radius: 100%;
+        
     }
     50% {
         background-color: gray;

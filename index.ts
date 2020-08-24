@@ -1,11 +1,11 @@
-import Snake from './Games/Snake.js'
-import AStar from './Pathfinding/AStar.js'
-import MergeSort from './Sorting/MergeSort.js'
-import QuickSort from './Sorting/QuickSort.js'
-import BubbleSort from './Sorting/BubbleSort.js'
-import FloodFill from './Pathfinding/FloodFill.js'
-import PrimsAlgorithm from './Maze/PrimsAlgorithm.js'
-import RecursiveDivision from './Maze/RecursiveDivision.js'
+import Snake from './Games/Snake.js';
+import AStar from './Pathfinding/AStar.js';
+import MergeSort from './Sorting/MergeSort.js';
+import QuickSort from './Sorting/QuickSort.js';
+import BubbleSort from './Sorting/BubbleSort.js';
+import FloodFill from './Pathfinding/FloodFill.js';
+import PrimsAlgorithm from './Maze/PrimsAlgorithm.js';
+import RecursiveDivision from './Maze/RecursiveDivision.js';
 
 let isAlgorithmRunning = new Array<boolean>(1);
 

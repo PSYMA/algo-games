@@ -73,7 +73,7 @@ export default class AStar {
                 let D = 1;
                 let D2 = Math.sqrt(2);
                 node.hScore = D * (dx + dy) + (D2 - 2 * D) * Math.min(dx, dy);
-                node.gScore = Math.max(dx1, dy1) + addr;
+                node.gScore = dx1 + dy1;
             }
             // btn.style.background = 'skyblue';
             if (btn != this.origStartNode && btn != this.targetNode) {

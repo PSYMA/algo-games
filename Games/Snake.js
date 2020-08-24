@@ -96,11 +96,6 @@ export default class Snake {
             yield this.sleep(80);
             this.foodTimeLimit++;
             this.ctx.clearRect(0, 0, 1000, 1000);
-            // random colours
-            let r = Math.floor(Math.random() * 255).toString();
-            let g = Math.floor(Math.random() * 255).toString();
-            let b = Math.floor(Math.random() * 255).toString();
-            let rgb = "rgba(" + r + "," + g + "," + b + "," + "255)";
             this.ctx.clearRect(0, 0, this.gameWidth, this.gameHeight);
             // draw head and food
             this.ctx.fillStyle = "Red";
@@ -109,7 +104,7 @@ export default class Snake {
             this.ctx.fillRect(this.head.x, this.head.y, this.head.width, this.head.height);
             // draw tails
             for (let i = 0; i < this.tailsList.length; i++) {
-                this.ctx.fillStyle = rgb;
+                this.ctx.fillStyle = "rgb(0, 77, 170)";
                 this.ctx.fillRect(this.tailsList[i].x, this.tailsList[i].y, this.tailsList[i].width, this.tailsList[i].height);
             }
             if (this.speed != 0) {
@@ -151,40 +146,47 @@ export default class Snake {
                     };
                     this.food = food;
                 }
-            }
-            // check if hit the tails then game over!
-            for (let i = 0; i < this.tailsList.length; i++) {
+                // check if hit the tails then game over!
+                for (let i = 0; i < this.tailsList.length; i++) {
+                    let box1 = { x: this.head.x, y: this.head.y, width: this.head.width, height: this.head.height };
+                    let box2 = { x: this.tailsList[i].x, y: this.tailsList[i].y, width: this.tailsList[i].width, height: this.tailsList[i].height };
+                    if (this.Collision(box1, box2)) {
+                        // random colours
+                        this.speed = 0;
+                    }
+                }
+                // check if food eaten
                 let box1 = { x: this.head.x, y: this.head.y, width: this.head.width, height: this.head.height };
-                let box2 = { x: this.tailsList[i].x, y: this.tailsList[i].y, width: this.tailsList[i].width, height: this.tailsList[i].height };
+                let box2 = { x: this.food.x, y: this.food.y, width: this.food.width, height: this.food.height };
                 if (this.Collision(box1, box2)) {
-                    this.ctx.font = "250px Comic Sans MS";
-                    this.ctx.fillStyle = rgb;
-                    this.ctx.textAlign = "center";
-                    this.ctx.fillText("Game Over!", this.gameWidth / 2, this.gameHeight / 2 + (this.gameHeight / 8));
-                    this.speed = 0;
+                    let food = {
+                        x: Math.floor(Math.random() * this.gameWidth),
+                        y: Math.floor(Math.random() * this.gameHeight),
+                        width: this.snakeWidth,
+                        height: this.snakeHeight
+                    };
+                    this.food = food;
+                    let tail = {
+                        x: this.head.x,
+                        y: this.head.y,
+                        width: this.snakeWidth,
+                        height: this.snakeHeight
+                    };
+                    this.tailsList.push(tail);
+                    this.score++;
+                    this.foodTimeLimit = 0;
+                    document.getElementById("SnakeScore").innerHTML = "Score: " + this.score.toString();
                 }
             }
-            // check if food eaten
-            let box1 = { x: this.head.x, y: this.head.y, width: this.head.width, height: this.head.height };
-            let box2 = { x: this.food.x, y: this.food.y, width: this.food.width, height: this.food.height };
-            if (this.Collision(box1, box2)) {
-                let food = {
-                    x: Math.floor(Math.random() * this.gameWidth),
-                    y: Math.floor(Math.random() * this.gameHeight),
-                    width: this.snakeWidth,
-                    height: this.snakeHeight
-                };
-                this.food = food;
-                let tail = {
-                    x: this.head.x,
-                    y: this.head.y,
-                    width: this.snakeWidth,
-                    height: this.snakeHeight
-                };
-                this.tailsList.push(tail);
-                this.score++;
-                this.foodTimeLimit = 0;
-                document.getElementById("SnakeScore").innerHTML = "Score: " + this.score.toString();
+            else {
+                let r = Math.floor(Math.random() * 255).toString();
+                let g = Math.floor(Math.random() * 255).toString();
+                let b = Math.floor(Math.random() * 255).toString();
+                let rgb = "rgba(" + r + "," + g + "," + b + "," + "255)";
+                this.ctx.font = "10vw Comic Sans MS";
+                this.ctx.fillStyle = rgb;
+                this.ctx.textAlign = "center";
+                this.ctx.fillText("Game Over!", this.gameWidth / 2, this.gameHeight / 2);
             }
             this.Draw();
         });
