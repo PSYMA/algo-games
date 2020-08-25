@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <title>Home</title>
 </head>
 
@@ -15,7 +14,7 @@
     <div class="Menu">
         <input type="Checkbox" id="Check">
         <label for="Check" class="Checkbtn">
-            <i class="fas fa-bars"></i>
+            <i class="fa fa-bars"></i>
         </label>
         <label class="Logo" id="Logo"></label>
         <ul>
@@ -116,7 +115,7 @@
                 field. Then soon after I decided to take the path of being a programmer.
             </p><br>
             <p style="text-indent: 10%;">
-                I have made a couple of projects written in C++ and C# as part of my practice, and study more about
+                I have made a couple of projects written in C++ and C# as part of my practice, I have studied more about
                 Object Oriented Programming and Data structure and Algorithms. My latest creation is the website itself.
                 As part of my goal I'm currently working to make myself a fine developer hoping to get my dream job as a
                 software developer soon.
@@ -155,7 +154,7 @@
                 <img src="Assets/Thumbnails/puzzleThumbNail.png" id="img" style="display: inline-block;">
                 <p>
                     The Puzzle Game is the last C# project I created. It was during early lockdown of March 2020,
-                    due to boredom I decided to create this. The game is tthe same as a typical puzzle game. You
+                    due to boredom I decided to create this. The game is the same as a typical puzzle game. You
                     will
                     just need
                     to put everything in order for you to win.
@@ -243,14 +242,20 @@
         <li style="display: inline-block;"><a href="#/"></a>
             <h2><a href="#/" id="Play">Play</a></h2>
         </li>
-        <li style="display: inline-block; margin-left: 1%;"><a href="#/"></a>
+        <li style="display: inline-block;  "><a href="#/"></a>
             <h2><a href="#/" id="Stop">Stop</a></h2>
         </li>
-        <li style="display: inline-block; margin-left: 1%;"><a href="#/"></a>
+        <li style="display: inline-block;  "><a href="#/"></a>
             <h2><a href="#/" id="Reset">Reset</a></h2>
         </li>
-        <h2 style="display: inline-block; margin-left: 40%; margin-right: 5%;" id="SnakeScore">Score: 0</h2>
         <h2 style="display: inline-block;  " id="SnakeHighScore">High Score: 0</h2>
+        <h2 style="display: inline-block;  " id="SnakeScore">Score: 0</h2>
+        <div class="Arrows">
+            <div> <button id="UP"> <i class="fa fa-angle-double-up"></i></button></div>
+            <button id="LEFT"> <i class="fa fa-angle-double-left"></i></button>
+            <button id="RIGHT"> <i class="fa fa-angle-double-right"></i></button>
+            <div><button id="DOWN"> <i class="fa fa-angle-double-down"></i></button></div>
+        </div>
         <Canvas id="SnakeBoard"></Canvas>
     </div>
     <div class="HomeDisplay" id="HomeDisplay">
@@ -273,7 +278,6 @@
         </h1>
     </div>
     <script type="module" src="index.js"> </script>
-
 </body>
 
 </html>

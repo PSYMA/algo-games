@@ -53,7 +53,7 @@ function AddGrid() {
                 for (let j = 0; j < column; j++) {
                     let td = document.createElement("td");
                     let btn = document.createElement("div");
-                    td.setAttribute("style", "background: white; font-size: 0px; color: black; width: 1.3vw; height: 1.4vw");
+                    td.setAttribute("style", "margin: auto; background: white; font-size: 0px; color: black; width: 1.4vw; height: 1.5vw");
                     td.appendChild(btn);
                     tr.appendChild(td);
 
@@ -311,13 +311,18 @@ document.getElementById("SnakeClick").onclick = function () {
     PlaySnake();
 }
 document.getElementById("Play").onclick = function () {
-    snake.Play();
+    if (!isAlgorithmRunning[0]) {
+        snake.Play();
+    }
 }
 document.getElementById("Stop").onclick = function () {
     snake.Stop();
 }
 document.getElementById("Reset").onclick = function () {
     snake.Reset();
+    if (!isAlgorithmRunning[0]) {
+        snake.Play();
+    }
 }
 /*---------------------------------------------------CONTENT CLICK-------------------------------------------------------*/
 document.getElementById("PortfolioClick").onclick = function () {

@@ -23,7 +23,7 @@ body{
 }
 .Menu .Logo{
     color: rgb(232, 230, 227);;
-    font-size: 2vw;
+    font-size: 2vmax;
     line-height: 80px;
     padding: 0 9vw;
     font-weight: bold;
@@ -69,8 +69,9 @@ body{
     }
     .Menu ul li a {
         font-size: 16px;
-    }
+    } 
 }
+
 @media (max-width: 852px){
     .Checkbtn {
         display: block;
@@ -104,12 +105,6 @@ body{
        display: block;
        position: relative; 
     } 
-    .Projects img{
-        display: absolute;      
-    }
-    .Projects p{
-       display: relative;      
-    }
     .PathfindingAlgorithm .Dropdown:hover .Dropdown-Content{
         display: block;
         position: fixed;
@@ -118,9 +113,22 @@ body{
         display: block;
         position: fixed;
     }
-    #Grid td div{
-        width: 1vw;
-        height: 1vw;
+    .Portfolio .Projects p{
+        font-size: 1.4vmax;
+    }
+    .Portfolio .AboutMe p{
+        font-size: 1vmax;
+    }
+    .Snake h2{
+        font-size: 1.5vmax;
+    }
+    .Snake li a{
+        font-size: 1.5vmax;
+    }
+    .Snake .Arrows button{
+        visibility: visible;
+        width: 7vmax;
+        height: 7vmax;
     }
 }
  
@@ -153,25 +161,6 @@ body{
 .Menu .Dropdown:hover .Dropdown-Content {
     display: block;
 } 
-/* Games */
-.Snake{
-    margin-top: 80px; 
-    text-align: center;
-}
-.Snake a{
-    color: rgb(232, 230, 227);;
-}
-.Snake a:hover{
-    background: #1b9bff;
-    transition: 0.5s;
-}
-#SnakeBoard{
-    border: 1px solid white;
-    position: relative;
-    margin-top: 2.5%;
-    width: 95%;
-    height: 73vh;
-}
 
 /* Sorting */
 .Sorting{
@@ -185,7 +174,7 @@ body{
 }
 .Sorting a{
     color: rgb(232, 230, 227);;
-    font-size: 2vw;
+    font-size: 1.8vmax;
     text-transform: uppercase;
 }
 #SortingBoard{
@@ -197,10 +186,10 @@ body{
 }
 .Sorting .Dropdown-Content a {
     border: 1px solid white;
-    line-height: 3vw;
+    line-height: 3vmax;
     display: block;
     text-align: center;
-    font-size: 1.5vw;   
+    font-size: 1.5vmax;   
     background: gray;  
 }
 .Sorting .Dropdown-Content a:hover {
@@ -230,7 +219,7 @@ body{
     border: 1px solid black;
 }
 .PathfindingInfo label{
-    font-size: 1.5vw;
+    font-size: 1.5vmax;
     text-align: center;
 }
 .PathfindingAlgorithm ul{
@@ -239,12 +228,12 @@ body{
 }
 .PathfindingAlgorithm ul li{
     display: inline-block;
-    margin: 0 1vw;
+    margin: 0 1vmax;
 }
 .PathfindingAlgorithm ul li a{
     color: rgb(232, 230, 227);;
     text-transform: uppercase;
-    font-size: 2vw;
+    font-size: 1.8vmax;
 }
 .PathfindingAlgorithm a:hover{
     background: #1b9bff;
@@ -263,12 +252,12 @@ body{
 } 
 .PathfindingAlgorithm .Dropdown-Content a {
     border: 1px solid white;
-    line-height: 3vw;
+    line-height: 3vmax;
     width: auto;
     text-decoration: none;
     display: block;
     text-align: center;
-    font-size: 1.5vw;   
+    font-size: 1.5vmax;   
     background: gray;  
 }
 .PathfindingAlgorithm .Dropdown-Content a:hover{
@@ -278,7 +267,7 @@ body{
     display: block;
 }  
 .Pathfinding h1, .Sorting h1{
-    font-size: 2vw;
+    font-size: 1.8vmax;
     text-align: center;
     color: rgb(232, 230, 227);;
 }
@@ -289,7 +278,6 @@ body{
     margin-top: 1%;
 }
  
-
 /* Portfolio */
 .Portfolio a:hover{
     background: #1b9bff;
@@ -308,7 +296,10 @@ body{
     margin-right: 5%;
     margin-top: 2%;
     color: rgb(232, 230, 227);;
-    font-size: 1vw;
+    font-size: 1vmax;
+}
+p{
+    word-break: break-word;
 }
 .ID{
     border-radius: 50%;
@@ -325,16 +316,17 @@ body{
     display: inline-block;
     vertical-align: top;
     width: 46%;
-    height: 20vw;
+    height: 20vmax;
 }
 .Projects p{
     display: inline-block;
     width: 46%;
-    margin-top: 5%;
     text-indent: 10%;
     text-align: justify;
-    font-size: 1.5vw;
-    color: rgb(232, 230, 227);;
+    font-size: 1.6vmax;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    color: rgb(232, 230, 227);
 }
 .Projects h1, h2{
     text-align: center;
@@ -344,6 +336,59 @@ body{
 .Projects  h2{
    margin-top: 5%;
 }
+
+/* Games */
+.Snake{
+    margin-top: 80px; 
+    text-align: center;
+}
+.Snake a{
+    color: rgb(232, 230, 227);;
+}
+.Snake a:hover{
+    background: #1b9bff;
+    transition: 0.5s;
+}
+#SnakeBoard{
+    border: 1px solid white;
+    position: relative;
+    margin-top: 2.5%;
+    width: 70vmax;
+    height: 35vmax;
+}
+.Snake h2{
+   font-size: 2.0vmax;
+   float: right;
+   padding-right: 3%;
+}
+.Snake li{
+    float: left;
+    padding-left: 3%;
+}
+ 
+.Snake div button{
+    cursor: pointer;
+    background: inherit;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20%;
+}
+.Snake div button i{
+    font-size: 4vmax;
+   
+}
+.Snake .Arrows{
+    position: fixed;
+    margin-top: 50vmax;
+    margin-left: 24vmax; 
+    z-index: 1;
+    visibility: hidden;
+    margin-left: 40%;
+}
+.Snake .Arrows button:hover{
+    background: #1b9bff;   
+}
+ 
 
 /* Homepage Animation*/
 .HomeDisplay{

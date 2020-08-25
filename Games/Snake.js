@@ -87,6 +87,45 @@ export default class Snake {
                 }
             }
         });
+        this.ClickButtons();
+    }
+    ClickButtons() {
+        $("#UP").click(() => {
+            // up
+            if (!this.down) {
+                this.up = true;
+                this.down = false;
+                this.left = false;
+                this.right = false;
+            }
+        });
+        $("#DOWN").click(() => {
+            // down
+            if (!this.up) {
+                this.up = false;
+                this.down = true;
+                this.left = false;
+                this.right = false;
+            }
+        });
+        $("#LEFT").click(() => {
+            // left
+            if (!this.right) {
+                this.up = false;
+                this.down = false;
+                this.left = true;
+                this.right = false;
+            }
+        });
+        $("#RIGHT").click(() => {
+            // right
+            if (!this.left) {
+                this.up = false;
+                this.down = false;
+                this.left = false;
+                this.right = true;
+            }
+        });
     }
     Draw() {
         return __awaiter(this, void 0, void 0, function* () {
