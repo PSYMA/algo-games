@@ -1,0 +1,502 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(31, 33, 35);
+    font-family: monospace;
+    display: table;
+    width: 100%;
+    overflow: auto;
+}
+
+/* Menu */
+.Menu{
+    background-color: inherit;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    z-index: 1;
+}
+.Menu .Logo{
+    color: rgb(232, 230, 227);;
+    font-size: 2vmax;
+    line-height: 80px;
+    padding: 0 9vw;
+    font-weight: bold;
+    position: fixed;
+}
+.Menu ul{    
+    float: right;
+    margin-right: 20px;
+}
+.Menu ul li{
+
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+.Menu ul li a{
+    color: rgb(232, 230, 227);;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.Menu a:hover, .Sorting a:hover{
+    background: #1b9bff;
+    transition: 0.5s;
+}
+.Menu li div a {
+    background-color: rgb(31, 33, 35);;
+}
+.Checkbtn{
+    font-size: 30px;
+    color: rgb(232, 230, 227);;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#Check{
+    display: none;
+}
+@media (max-width: 952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    .Menu ul li a {
+        font-size: 16px;
+    } 
+}
+
+@media (max-width: 852px){
+    .Checkbtn {
+        display: block;
+    }
+    .Menu ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(31, 33, 35);;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.5s;
+    }
+    .Menu ul li {
+        display: block;
+    }
+    .Menu ul li a {
+        font-size: 20px;
+        display: block;
+        text-align: center;
+    }
+    a:hover .Dropdown-Content{
+        background: none;
+        color: #0082e6;
+    }
+    #Check:Checked ~ ul{
+        left: 0;
+    }
+    #Check:Checked ul::after{
+        visibility: hidden;
+    }
+    .Dropdown:hover .Dropdown-Content {
+       display: block;
+       position: relative; 
+    } 
+    .PathfindingAlgorithm .Dropdown:hover .Dropdown-Content{
+        display: block;
+        position: fixed;
+    }
+    .Sorting .Dropdown:hover .Dropdown-Content{
+        display: block;
+        position: fixed;
+    }
+    .Portfolio .Projects p{
+        font-size: 1.4vmax;
+    }
+    .Portfolio .AboutMe p{
+        font-size: 1vmax;
+    }
+    .Snake h2{
+        font-size: 1.5vmax;
+    }
+    .Snake li a{
+        font-size: 1.5vmax;
+    }
+    .Snake .Arrows button{
+        visibility: visible;
+        width: 7vmax;
+        height: 7vmax;
+    }
+}
+ 
+.Dropdown .Dropbtn {
+    border: none;
+    outline: none;
+    color: rgb(232, 230, 227);;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    font-size: 14px;
+}
+.Dropdown-Content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+} 
+.Menu .Dropdown-Content a {
+    border: 1px solid white;
+    line-height: 50px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    background: gray;
+}
+.Menu .Dropdown-Content a:hover {
+    background: #1b9bff;
+}
+.Menu .Dropdown:hover .Dropdown-Content {
+    display: block;
+} 
+
+/* Sorting */
+.Sorting{
+    margin-top: 80px; 
+    text-align: center;
+  
+}
+.Sorting ul li{
+    color: rgb(232, 230, 227);;
+    display: inline-block;  margin: 0 5px;
+}
+.Sorting a{
+    color: rgb(232, 230, 227);;
+    font-size: 1.8vmax;
+    text-transform: uppercase;
+}
+#SortingBoard{
+    border: 1px solid white;
+    position: relative;
+    width: 95%;
+    height: 73vh;
+    margin-top: 1%;
+}
+.Sorting .Dropdown-Content a {
+    border: 1px solid white;
+    line-height: 3vmax;
+    display: block;
+    text-align: center;
+    font-size: 1.5vmax;   
+    background: gray;  
+}
+.Sorting .Dropdown-Content a:hover {
+    background: #1b9bff;
+}
+.Sorting .Dropdown:hover .Dropdown-Content {
+    display: block;
+}
+/* Pathfinding */
+.Pathfinding{
+    margin-top: 80px;
+}
+.PathfindingInfo{
+    text-transform: uppercase;
+    color: rgb(232, 230, 227);;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+}
+.PathfindingInfo div {
+    width: 1.5vw;
+    height: 1.5vw;
+    display: inline-block;
+    margin-left: auto;
+    border: 1px solid black;
+}
+.PathfindingInfo label{
+    font-size: 1.5vmax;
+    text-align: center;
+}
+.PathfindingAlgorithm ul{
+    text-align: center;
+    margin-right: 20px;
+}
+.PathfindingAlgorithm ul li{
+    display: inline-block;
+    margin: 0 1vmax;
+}
+.PathfindingAlgorithm ul li a{
+    color: rgb(232, 230, 227);;
+    text-transform: uppercase;
+    font-size: 1.8vmax;
+}
+.PathfindingAlgorithm a:hover{
+    background: #1b9bff;
+    transition: 0.5s;
+}
+.PathfindingAlgorithm .Dropdown .Dropbtn {
+    border: none;
+    outline: none;
+    color: rgb(232, 230, 227);;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+.PathfindingAlgorithm .Dropdown-Content {
+    display: none;
+} 
+.PathfindingAlgorithm .Dropdown-Content a {
+    border: 1px solid white;
+    line-height: 3vmax;
+    width: auto;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 1.5vmax;   
+    background: gray;  
+}
+.PathfindingAlgorithm .Dropdown-Content a:hover{
+    background: #1b9bff;
+}
+.PathfindingAlgorithm .Dropdown:hover .Dropdown-Content {
+    display: block;
+}  
+.Pathfinding h1, .Sorting h1{
+    font-size: 1.8vmax;
+    text-align: center;
+    color: rgb(232, 230, 227);;
+}
+ 
+.Pathfinding #Grid{
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5%;
+}
+ 
+/* Portfolio */
+.Portfolio a:hover{
+    background: #1b9bff;
+}
+.AboutMe{
+    margin-top: 80px;
+    position: fixed;
+    width: 30%;
+    height: auto;
+    float: left;
+}
+.AboutMe p{
+    text-indent: 10%;
+    text-align: justify;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    color: rgb(232, 230, 227);;
+    font-size: 1vmax;
+}
+p{
+    word-break: break-word;
+}
+.ID{
+    border-radius: 50%;
+    width: 15vw;
+    height: 15vw;
+    margin-left: 22%;
+}
+.Projects{
+    margin-top: 80px;
+    float: right;
+    width: 70%;
+}
+.Projects img{
+    display: inline-block;
+    vertical-align: top;
+    width: 46%;
+    height: 20vmax;
+}
+.Projects p{
+    display: inline-block;
+    width: 46%;
+    text-indent: 10%;
+    text-align: justify;
+    font-size: 1.6vmax;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    color: rgb(232, 230, 227);
+}
+.Projects h1, h2{
+    text-align: center;
+    color: rgb(232, 230, 227);;
+    font-size: 2vw;
+}
+.Projects  h2{
+   margin-top: 5%;
+}
+
+/* Games */
+.Snake{
+    margin-top: 80px; 
+    text-align: center;
+}
+.Snake a{
+    color: rgb(232, 230, 227);;
+}
+.Snake a:hover{
+    background: #1b9bff;
+    transition: 0.5s;
+}
+#SnakeBoard{
+    border: 1px solid white;
+    position: relative;
+    margin-top: 2.5%;
+    width: 95vmax;
+    height: 35vmax;
+}
+.Snake h2{
+   font-size: 2.0vmax;
+   float: right;
+   padding-right: 3%;
+}
+.Snake li{
+    float: left;
+    padding-left: 3%;
+}
+ 
+.Snake div button{
+    cursor: pointer;
+    background: inherit;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20%;
+}
+.Snake div button i{
+    font-size: 4vmax;
+
+}
+.Snake .Arrows{
+    position: fixed;
+    margin-top: 50vmax;
+    margin-left: 24vmax; 
+    z-index: 1;
+    visibility: hidden;
+    margin-left: 40%;
+}
+.Snake .Arrows button:hover{
+    background: #1b9bff;   
+}
+  
+
+/* Homepage Animation*/
+.HomeDisplay{
+    margin-top: 200px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    height: 65vh;
+    font-family: cursive;
+    color: #111;
+    font-size: 5.5vw;
+}
+.HomeText span{
+        display: table-cell;
+        margin: 0;
+        padding: 0;
+        animation: animate 4s linear infinite;
+}
+.HomeText span:nth-child(1){ animation-delay: 0s;}
+.HomeText span:nth-child(2){ animation-delay: .25s;}
+.HomeText span:nth-child(3){ animation-delay: .50s;}
+.HomeText span:nth-child(4){ animation-delay: .75s;}
+.HomeText span:nth-child(5){ animation-delay: 1s;}
+.HomeText span:nth-child(6){ animation-delay: 1.25s;}
+.HomeText span:nth-child(7){ animation-delay: 1.50s;}
+.HomeText span:nth-child(8){ animation-delay: 1.75s;}
+.HomeText span:nth-child(9){ animation-delay: 2.0s;}
+.HomeText span:nth-child(10){ animation-delay: 2.25s;}
+.HomeText span:nth-child(11){ animation-delay: 2.50s;}
+.HomeText span:nth-child(12){ animation-delay: 2.75s;}
+.HomeText span:nth-child(13){ animation-delay: 3s;}
+.HomeText span:nth-child(14){ animation-delay: 3.25s;}
+.HomeText span:nth-child(15){ animation-delay: 3.50s;}
+@keyframes animate{
+    0%, 100%{
+        color:gold;
+    }
+    5%, 95%{
+        color: slategray;
+        text-shadow:  none;
+    }
+}
+
+
+/* Pathfinding animation */
+.visited {
+    animation-name: visitedAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    border: 1px solid skyblue;
+    border-image: initial;
+}
+.path {
+    animation-name: pathAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    border: 1px solid yellow;
+    border-image: initial;
+    animation: pathAnimation 3s linear infinite; 
+}
+@keyframes visitedAnimation{
+    0% {
+        transform: scale(0.3);
+        background-color: violet;
+        border-radius: 100%;
+        
+    }
+    50% {
+        background-color: gray;
+    }
+    75% {
+        transform: scale(1.2);
+        background-color: blueviolet;
+    }
+    100% {
+        transform: scale(1);
+        background-color: skyblue;
+    }
+}
+@keyframes pathAnimation{
+    
+    0% {
+        transform: scale(0.3);
+        background-color: violet;
+        border-radius: 100%;
+    }
+    50% {
+        background-color: gray;
+    }
+    75% {
+        transform: scale(1.2);
+        background-color: blueviolet;
+    }
+    100% {
+        transform: scale(1);
+        background-color: yellow;
+    }
+}
