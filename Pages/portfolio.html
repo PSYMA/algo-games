@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <div class="Menu">
+        <input type="Checkbox" id="Check">
+        <label for="Check" class="Checkbtn" id="ch">
+            <i class="fa fa-bars" id="bar"></i>
+            <i class="fa fa-times" id="times" style="display: none; visibility: hidden;"></i>
+        </label>
+        <label class="Logo" id="Logo">Portfolio</label>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li class="Dropdown">
+                <div class="Dropbtn">
+                    <a href="#/">Games<i style="color: white" class="fa fa-caret-down"></i></a>
+                    <div class="Dropdown-Content">
+                        <a href="/Pages/snake.html">Snake Game</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="/Pages/portfolio.html">Portfolio</a></li>
+            <li class="Dropdown">
+                <div href="#/" class="Dropbtn">
+                    <a href="#/">Algorithm Visualization<i style="color: white" class="fa fa-caret-down"></i></a>
+                    <div class="Dropdown-Content">
+                        <a href="/Pages/sorting.html">Sorting Visualizer</a>
+                        <a href="/Pages/pathfinding.html">Pathfinding Visualizer</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="Portfolio" id="Portfolio">
+        <div class="AboutMe">
+            <img src="/Assets/ID.jpg" alt="Avatar" class="ID">
+            <p>
+                My name is Rickben Anthony Q. Gimeda, I started my programming career in 2018,
+                It was during my second year in Bachelor of Science in Computer Engineering program. I struggle
+                a lot in programming course but soon enough I started to like it, like how much I can do in programming
+                field. Then soon after I decided to take the path of being a programmer.
+            </p><br>
+            <p style="text-indent: 10%;">
+                I have made a couple of projects written in C++ and C# as part of my practice, I have studied more about
+                Object Oriented Programming and Data structure and Algorithms. My latest creation is the website itself.
+                As part of my goal I'm currently working to make myself a fine developer hoping to get my dream job as a
+                software developer soon.
+            </p><br>
+            <li style="margin-left: 10%; color: rgb(232, 230, 227);">
+                <label style="font-size: 1.5vw; display: inline-block;">
+                    <i class="fa fa-google" style="color: white;font-size: 1.5vw;"> : </i>
+                </label>
+                <a style="color: #004daa; font-size: 1.5vw; text-align: center; display: inline-block;">
+                    rickbengimeda@gmail.com
+                </a>
+            </li>
+            <li style="margin-left: 10%; color: rgb(232, 230, 227);">
+                <label style="font-size: 1.5vw; display: inline-block;">
+                    <i class="fa fa-github" style="color: white;font-size: 1.5vw;"> : </i>
+                </label>
+                <a href="https://github.com/PSYMA" target="_blank"
+                    style="color: #004daa; font-size: 1.5vw; text-align: center; display: inline-block;">
+                    github.com
+                </a>
+            </li>
+            <li style="margin-left: 10%; color: rgb(232, 230, 227);">
+                <label style="font-size: 1.5vw; display: inline-block;">
+                    <i class="fa fa-facebook-square" style="color: white;font-size: 1.5vw;"> : </i>
+                </label>
+                <a href="https://web.facebook.com/jpakingpotomen" target="_blank"
+                    style="color: #004daa; font-size: 1.5vw; text-align: center; display: inline-block;">
+                    facebook.com
+                </a>
+            </li>
+        </div>
+        <div class="Projects">
+            <h1>PROJECTS</h1>
+            <div>
+                <h2>Puzzle Game (C# (WPF))</h2>
+                <img src="/Assets/Thumbnails/puzzleThumbNail.png" id="img" style="display: inline-block;">
+                <p>
+                    The Puzzle Game is the last C# project I created. It was during early lockdown of March 2020,
+                    due to boredom I decided to create this. The game is the same as a typical puzzle game. You
+                    will
+                    just need
+                    to put everything in order for you to win.
+                    <a href="https://github.com/PSYMA/Puzzle-Game-CSharp-WPF" target="_blank"
+                        style="color: #004daa; ">source code</a>
+                </p>
+            </div>
+            <div>
+                <h2>Tic Tac Toe (C# (WPF))</h2>
+                <img src="/Assets/Thumbnails/tictactoeThumbNail.png" id="img">
+                <p>
+                    This Tic Tac Toe Game is my prelim project during my C# language course in college, this is not
+                    your
+                    traditional tic tac toe game, the game itself has more features and is way more graphical. The
+                    rules
+                    are
+                    the
+                    same.
+                    <a href="https://github.com/PSYMA/TIC-TAC-TOE-CSharp-WPF" target="_blank"
+                        style="color: #004daa;">source code</a>
+                </p>
+            </div>
+            <div>
+                <h2>The Matching Game (C# (WPF))</h2>
+                <img src="/Assets/Thumbnails/matchThumbNail.png" id="img">
+                <p>
+                    This Matching Game is my midterm project during my C# language course in college, the game works
+                    by
+                    pairing
+                    its cell to the other cell, make mistakes and it will reduce your HP when HP goes to zero you
+                    lose.
+                    <a href="https://github.com/PSYMA/The-Matching-Game-CSharp-WPF-" target="_blank"
+                        style="color: #004daa;">source code</a>
+                </p>
+            </div>
+            <div>
+                <h2>The Hidden Battle Game (C# (WPF))</h2>
+                <img src="/Assets/Thumbnails/battleThumbNail.png" id="img">
+                <p>
+                    This Hidden Battle Game is my final project during my C# language course in college, The game is
+                    derived from this board game <a href="https://www.youtube.com/watch?v=4gHJlYLomrs" target="_blank"
+                        style="color: #004daa;">link</a>.
+                    this is the most challenging project I created in C# so far took me a lot of time to finished.
+                    <a href="https://github.com/PSYMA/The-Hidden-Game-Battle-CSharp-WPF-" target="_blank"
+                        style="color: #004daa;">source
+                        code</a>
+                </p>
+            </div>
+            <div>
+                <h2>The Pong Game (C++)</h2>
+                <img src="/Assets/Thumbnails/pongThumnail.png" id="img">
+                <p>
+                    This is one of my very first project back in my early days in programming C language in particular,
+                    The is game quite simple all you need to do is to control the paddle and catch the ball, make sure
+                    to catch the ball otherwise you will lose. clear all stars and you win.
+                    <a href="https://github.com/PSYMA/Ping-pong-Game-simple-Cpp-Console" target="_blank"
+                        style="color: #004daa;">source code</a>
+                </p>
+            </div>
+            <div>
+                <h2>Simple Library System (C++)</h2>
+                <img src="/Assets/Thumbnails/cppLibraryThumbnail.png" id="img">
+                <p>
+                    This Simple Library System is my final project during my C language course. I struggle a lot during
+                    my creation of this project, I am still a newbie at that time. The project is quite easy: student
+                    borrow books as well return it.
+                    <a href="https://github.com/PSYMA/Library-System-simple-C-Cpp-Console" target="_blank"
+                        style="color: #004daa;">source code</a>
+                </p>
+            </div>
+            <div>
+                <h2>Library System (SQLite integrated) (C# (WPF))</h2>
+                <img src="/Assets/Thumbnails/csLibraryThumbNail.png" id="img">
+                <p>
+                    This Library System is the upgraded version of my Simple Library System in C++,
+                    it's integrated with SQLite and offers a couple of features and it's graphical and user friendly.
+                    I decided to create this project to expose myself in a database project.
+                    <a href="https://github.com/PSYMA/Library-System-CSharp-WPF" target="_blank"
+                        style="color: #004daa;">source code</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/index.js"> </script>
+</body>
+
+</html>

@@ -78,7 +78,7 @@ export default class AStar {
             }
             else {
                 node.hScore = dx + dy;
-                node.gScore = dx1 + dy1;
+                node.gScore = dx1 + dy1 + addr;
             }
             // btn.style.background = 'skyblue';
             if (btn != this.origStartNode && btn != this.targetNode) {
@@ -87,7 +87,6 @@ export default class AStar {
             node.current = btn;
             node.parent = this.startNode;
             node.fScore = node.gScore + node.hScore;
-            btn.textContent = node.fScore.toString();
             this.openList.push(node);
         }
     }
