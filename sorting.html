@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Home</title>
+    <title>Sorting Visualizer</title>
 </head>
 
 <body>
@@ -40,32 +40,29 @@
             </li>
         </ul>
     </div>
-    <div class="HomeDisplay" id="HomeDisplay">
-        <h1 class="HomeText" id="HomeText">
-            <span>A</span>
-            <span>l</span>
-            <span>g</span>
-            <span>o</span>
-            <span>r</span>
-            <span>i</span>
-            <span>t</span>
-            <span>h</span>
-            <span>m</span>
-            <span>-</span>
-            <span>G</span>
-            <span>a</span>
-            <span>m</span>
-            <span>e</span>
-            <span>s</span>
-        </h1>
-    </div>
-    <div>
+    <div class="Sorting" id="Sorting">
         <ul>
-            <p>This site is under construction</p>
-            <p> rickbengimeda@gmail.com</p>
+            <li class="Dropdown">
+                <div href="#/" class="Dropbtn">
+                    <a href="#/">Algorithms <i style="color: white" class="fa fa-caret-down"></i></a>
+                    <div class="Dropdown-Content">
+                        <a href="#/" id="QuickSort">QuickSort Algorithm</a>
+                        <a href="#/" id="BubbleSort">BubbleSort Algorithm</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#/" id="VisualizeSorting">Visualize</a></li>
+            <li><a href="#/" id="ResetArray">Reset Array</a></li>
+            <input style="display: inline-block; width: 10vw; height: 1vw;" type="range" min="10" value="10" max="500"
+                class="slider" id="Slider">
+            <p id="ArraySize" style="font-size: 1.5vw; display: inline-block; color: white">10</p>
         </ul>
+        <h1 id="SortingMessage">Welcome to sorting visualizer! please select an algorithm </h1>
+        <div id="Canvas-Wrapper">
+            <canvas id="SortingBoard"></canvas>
+        </div>
     </div>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="index.js"> </script>
 </body>
 
 </html>

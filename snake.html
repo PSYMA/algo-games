@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Home</title>
+    <title>Snake Game</title>
 </head>
 
 <body>
@@ -40,32 +40,29 @@
             </li>
         </ul>
     </div>
-    <div class="HomeDisplay" id="HomeDisplay">
-        <h1 class="HomeText" id="HomeText">
-            <span>A</span>
-            <span>l</span>
-            <span>g</span>
-            <span>o</span>
-            <span>r</span>
-            <span>i</span>
-            <span>t</span>
-            <span>h</span>
-            <span>m</span>
-            <span>-</span>
-            <span>G</span>
-            <span>a</span>
-            <span>m</span>
-            <span>e</span>
-            <span>s</span>
-        </h1>
+    <div class="Snake" id="Snake">
+        <li style="display: inline-block;"><a href="#/"></a>
+            <h2><a href="#/" id="Play">Play</a></h2>
+        </li>
+        <li style="display: inline-block;  "><a href="#/"></a>
+            <h2><a href="#/" id="Stop">Stop</a></h2>
+        </li>
+        <li style="display: inline-block;  "><a href="#/"></a>
+            <h2><a href="#/" id="Reset">Reset</a></h2>
+        </li>
+        <h2 style="display: inline-block;  " id="SnakeHighScore">High Score: 0</h2>
+        <h2 style="display: inline-block;  " id="SnakeScore">Score: 0</h2>
+        <div class="Arrows">
+            <div> <button id="UP"> <i class="fa fa-angle-double-up"></i></button></div>
+            <button id="LEFT"> <i class="fa fa-angle-double-left"></i></button>
+            <button id="RIGHT"> <i class="fa fa-angle-double-right"></i></button>
+            <div><button id="DOWN"> <i class="fa fa-angle-double-down"></i></button></div>
+        </div>
+        <div id="Canvas-Wrapper">
+            <canvas id="SnakeBoard"></canvas>
+        </div>
     </div>
-    <div>
-        <ul>
-            <p>This site is under construction</p>
-            <p> rickbengimeda@gmail.com</p>
-        </ul>
-    </div>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="index.js"> </script> 
 </body>
 
 </html>

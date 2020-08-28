@@ -11,7 +11,7 @@ document.getElementById("ch").onclick = function () {
         document.getElementById("bar").setAttribute("style", "display: inline; visibility: visible");
     }
 }
-
+ 
 import Snake from './Games/Snake.js';
 import AStar from './Pathfinding/AStar.js';
 import MergeSort from './Sorting/MergeSort.js';
@@ -25,6 +25,7 @@ let isAlgorithmRunning = new Array<boolean>(1);
 
 $(document).ready(function () {
     if ($('#Grid').length) {
+     
         let row: number = 21;
         let column: number = 61;
         let addWall: boolean = false;
