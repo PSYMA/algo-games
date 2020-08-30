@@ -184,7 +184,7 @@ body {
 }
 
 .Menu .Dropdown-Content a:hover {
-    background: #1b9bff;
+    background-color: #1b9bff;
 }
 
 .Menu .Dropdown:hover .Dropdown-Content {
@@ -573,7 +573,7 @@ h2 {
 
 .visited {
     animation-name: visitedAnimation;
-    animation-duration: 1.5s;
+    animation-duration: 2s;
     animation-timing-function: ease-out;
     animation-direction: alternate;
     animation-iteration-count: 1;
@@ -585,7 +585,7 @@ h2 {
 
 .path {
     animation-name: pathAnimation;
-    animation-duration: 1.5s;
+    animation-duration: 2s;
     animation-timing-function: ease-out;
     animation-direction: alternate;
     animation-iteration-count: 1;

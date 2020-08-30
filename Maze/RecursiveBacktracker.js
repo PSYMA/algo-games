@@ -27,7 +27,6 @@ export default class RecursiveBacktracker {
         this.buttonArray = buttonArray;
         this.isAlgorithmRunning = isAlgorithmRunning;
         this.openList.push(this.buttonArray[0][0]);
-        // this.openList.push(this.buttonArray[Math.floor(Math.random() * row)][Math.floor(Math.random() * column)]);
         for (let i = 0; i < row; i++) {
             for (let j = 0; j < column; j++) {
                 let btn = this.buttonArray[i][j];
@@ -36,7 +35,6 @@ export default class RecursiveBacktracker {
                 }
             }
         }
-        this.RecursiveBacktracker();
     }
     sleep(msec) {
         return __awaiter(this, void 0, void 0, function* () { return new Promise(resolve => setTimeout(resolve, msec)); });
@@ -85,7 +83,7 @@ export default class RecursiveBacktracker {
                         btn.style.background = "blue";
                         setTimeout(function () {
                             btn.style.background = "white";
-                        }, 25);
+                        }, 50);
                     }
                     if (btn1 != this.startNode && btn1 != this.targetNode) {
                         btn1.style.background = "white";
@@ -110,7 +108,7 @@ export default class RecursiveBacktracker {
                         btn.style.background = "blue";
                         setTimeout(function () {
                             btn.style.background = "white";
-                        }, 25);
+                        }, 50);
                     }
                     this.openList.push(btn);
                 }

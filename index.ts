@@ -50,7 +50,8 @@ $(document).ready(function () {
                         for (let j = 0; j < column; j++) {
                             let td = document.createElement("td");
                             let btn = document.createElement("div");
-                            td.setAttribute("style", "font-size: 0px; margin: auto; background: white; color: black; width: 1.3vw; height: 1.5vw");
+                            // td.setAttribute("style", "font-size: 0px; margin: auto; background: white; color: black; width: 1.2vw; height: 1.2vw");
+                            td.setAttribute("style", "font-size: 20px; margin: auto; background: white; color: black; width: 1.3vw; height: 1.5vw");
                             td.appendChild(btn);
                             tr.appendChild(td);
 
@@ -171,6 +172,7 @@ $(document).ready(function () {
                     isAddGrid = true;
                     startNode.style.background = 'green';
                     targetNode.style.background = 'red';
+
                 }
 
             }
