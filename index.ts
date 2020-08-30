@@ -1,17 +1,3 @@
-let turn = false;
-document.getElementById("ch").onclick = function () {
-    if (!turn) {
-        turn = true;
-        document.getElementById("bar").setAttribute("style", "display: none; visibility: hidden");
-        document.getElementById("times").setAttribute("style", "display: inline; visibility: visible");
-    }
-    else {
-        turn = false;
-        document.getElementById("times").setAttribute("style", "display: none; visibility: hidden");
-        document.getElementById("bar").setAttribute("style", "display: inline; visibility: visible");
-    }
-}
- 
 import Snake from './Games/Snake.js';
 import AStar from './Pathfinding/AStar.js';
 import MergeSort from './Sorting/MergeSort.js';
@@ -20,12 +6,25 @@ import BubbleSort from './Sorting/BubbleSort.js';
 import FloodFill from './Pathfinding/FloodFill.js';
 import PrimsAlgorithm from './Maze/PrimsAlgorithm.js';
 import RecursiveDivision from './Maze/RecursiveDivision.js';
-
-let isAlgorithmRunning = new Array<boolean>(1);
-
+import RecursiveBacktracker from './Maze/RecursiveBacktracker.js';
 $(document).ready(function () {
+    let turn: boolean = false;
+    $("#ch").click(function () {
+        if (!turn) {
+            turn = true;
+            document.getElementById("bar").setAttribute("style", "display: none; visibility: hidden");
+            document.getElementById("times").setAttribute("style", "display: inline; visibility: visible");
+        }
+        else {
+            turn = false;
+            document.getElementById("times").setAttribute("style", "display: none; visibility: hidden");
+            document.getElementById("bar").setAttribute("style", "display: inline; visibility: visible");
+        }
+    });
+
+    let isAlgorithmRunning = new Array<boolean>(1);
+
     if ($('#Grid').length) {
-     
         let row: number = 21;
         let column: number = 61;
         let addWall: boolean = false;
@@ -40,7 +39,7 @@ $(document).ready(function () {
         let buttonArray: Array<HTMLTableDataCellElement>[] = [];
         enum PathFindingAlgorithm { None = 0, Astar, Dijkstra, Floodfill, GreedyBestFirst }
         let selectPathFindingAlgorithm: PathFindingAlgorithm = PathFindingAlgorithm.None;
-        function AddGrid() {
+        function AddGrid(): void {
             if (!isAlgorithmRunning[0]) {
                 // create Grid here
                 if (!isAddGrid) {
@@ -51,7 +50,7 @@ $(document).ready(function () {
                         for (let j = 0; j < column; j++) {
                             let td = document.createElement("td");
                             let btn = document.createElement("div");
-                            td.setAttribute("style", "margin: auto; background: white; color: black; width: 1.3vw; height: 1.5vw");
+                            td.setAttribute("style", "font-size: 0px; margin: auto; background: white; color: black; width: 1.3vw; height: 1.5vw");
                             td.appendChild(btn);
                             tr.appendChild(td);
 
@@ -177,7 +176,7 @@ $(document).ready(function () {
             }
 
         }
-        function ClearBoardPathFinding() {
+        function ClearBoardPathFinding(): void {
             if (!isAlgorithmRunning[0]) {
                 document.getElementById("PathFindingMessage").innerHTML = "Welcome to Pathfinding Visualizer! please select an algorithm";
                 wallList = [];
@@ -193,7 +192,7 @@ $(document).ready(function () {
                 targetNode.style.background = 'red';
             }
         }
-        function VisualizePathfinding() {
+        function VisualizePathfinding(): void {
             if (!isAlgorithmRunning[0]) {
                 for (let i = 0; i < row; i++) {
                     for (let j = 0; j < column; j++) {
@@ -265,7 +264,14 @@ $(document).ready(function () {
                 recursiveDivision.StartRecursiveDivision();
             }
         });
-
+        $("#RecursiveBacktracker").click(function () {
+            if (!isAlgorithmRunning[0]) {
+                ClearBoardPathFinding();
+                const recursiveBacktracker = new RecursiveBacktracker(buttonArray, wallList, startNode, targetNode, row, column, isAlgorithmRunning);
+                isAlgorithmRunning[0] = true;
+                recursiveBacktracker.StartRecursiveBacktracker();
+            }
+        });
         AddGrid();
     }
     if ($('#SortingBoard').length) {
@@ -302,7 +308,7 @@ $(document).ready(function () {
                 arrayElements.push(node);
             }
         }
-        function VisualizeSorting() {
+        function VisualizeSorting(): void {
             if (!isAlgorithmRunning[0]) {
                 switch (selectSortingAlgorithm) {
                     case SortingAlgorithm.BubbleSort:
@@ -355,7 +361,7 @@ $(document).ready(function () {
     }
     if ($('#SnakeBoard').length) {
         let snake: any = undefined;
-        function PlaySnake() {
+        function PlaySnake(): void {
             let canvas: any = document.getElementById("SnakeBoard");
             let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
             let canvasWrapperRect = document.getElementById("Canvas-Wrapper").getBoundingClientRect();
@@ -366,20 +372,19 @@ $(document).ready(function () {
             snake = new Snake(ctx, gameWidth, gameHeight, isAlgorithmRunning);
         }
         PlaySnake();
-        document.getElementById("Play").onclick = function () {
+        $("#Play").click(function () {
             if (!isAlgorithmRunning[0]) {
                 snake.Play();
             }
-        }
-        document.getElementById("Stop").onclick = function () {
+        });
+        $("#Stop").click(function () {
             snake.Stop();
-        }
-        document.getElementById("Reset").onclick = function () {
+        });
+        $("#Reset").click(function () {
             snake.Reset();
             if (!isAlgorithmRunning[0]) {
                 snake.Play();
             }
-        }
+        });
     }
 });
-

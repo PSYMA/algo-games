@@ -118,10 +118,11 @@ export default class RecursiveDivision {
     }
     StartRecursiveDivision() {
         return __awaiter(this, void 0, void 0, function* () {
-            document.getElementById("PathFindingMessage").innerHTML = "Creating Maze...";
-            yield this.Division(false, 0, this.column - 1, 0, this.row - 1);
+            $("#PathFindingMessage").html("Creating Maze...");
+            // document.getElementById("PathFindingMessage").innerHTML = "Creating Maze...";
+            yield this.Division(this.turn, 0, this.column - 1, 0, this.row - 1);
             this.Finish();
-            document.getElementById("PathFindingMessage").innerHTML = "Maze Created!";
+            $("#PathFindingMessage").html("Maze Created!");
         });
     }
 }

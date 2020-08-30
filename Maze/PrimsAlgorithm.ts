@@ -81,7 +81,6 @@ export default class PrimsAlgorithm {
             btn2.style.background = 'white';
         }
         if (this.visited.length >= 341) {
-            document.getElementById("PathFindingMessage").innerHTML = "Maze Created!";
             this.Finish();
             for (let i = 0; i < this.row; i++) {
                 for (let j = 0; j < this.column; j++) {
@@ -106,11 +105,11 @@ export default class PrimsAlgorithm {
         return [-1, -1];
     }
     private Finish() {
+        $("#PathFindingMessage").html("Maze Created!");
         this.isAlgorithmRunning[0] = false;
-
     }
     public async StartRandomizedPrims() {
-        document.getElementById("PathFindingMessage").innerHTML = "Creating Maze...";
+        $("#PathFindingMessage").html("Creating Maze...");
         await this.RandomizedPrimsAlgorithm();
     }
 }

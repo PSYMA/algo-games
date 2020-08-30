@@ -26,7 +26,6 @@ export default class RecursiveDivision {
     // source https://stackoverflow.com/questions/23530756/maze-recursive-division-algorithm-design
     private Finish() {
         this.isAlgorithmRunning[0] = false;
-
     }
     private RandomNumber(min: number, max: number) {
         return Math.floor(Math.random() * (max - min + 1) + min);
@@ -94,9 +93,10 @@ export default class RecursiveDivision {
         }
     }
     public async StartRecursiveDivision() {
-        document.getElementById("PathFindingMessage").innerHTML = "Creating Maze...";
-        await this.Division(false, 0, this.column - 1, 0, this.row - 1);
+        $("#PathFindingMessage").html("Creating Maze...");
+        // document.getElementById("PathFindingMessage").innerHTML = "Creating Maze...";
+        await this.Division(this.turn, 0, this.column - 1, 0, this.row - 1);
         this.Finish();
-        document.getElementById("PathFindingMessage").innerHTML = "Maze Created!";
+        $("#PathFindingMessage").html("Maze Created!");
     }
 }
