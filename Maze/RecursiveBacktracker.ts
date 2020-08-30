@@ -83,17 +83,7 @@ export default class RecursiveBacktracker {
                 this.openList.push(btn);
                 this.stackList.push(btn);
             }
-            else {
-                let btn = this.stackList.pop();
-                if (btn != this.startNode && btn != this.targetNode) {
-                    btn.style.background = "blue";
-                    setTimeout(function () {
-                        btn.style.background = "white";
-                    }, 25);
-                }
-                this.openList.push(btn);
-            }
-            if (this.stackList.length == 0) {
+            else if (this.stackList.length == 0) {
                 this.Finish();
                 for (let i = 0; i < this.row; i++) {
                     for (let j = 0; j < this.column; j++) {
@@ -104,6 +94,17 @@ export default class RecursiveBacktracker {
                 }
                 return;
             }
+            else {
+                let btn = this.stackList.pop();
+                if (btn != this.startNode && btn != this.targetNode) {
+                    btn.style.background = "blue";
+                    setTimeout(function () {
+                        btn.style.background = "white";
+                    }, 25);
+                }
+                this.openList.push(btn);
+            }
+
         }
         this.RecursiveBacktracker();
     }
