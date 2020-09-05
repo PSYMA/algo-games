@@ -7,6 +7,7 @@ import FloodFill from './Pathfinding/FloodFill.js';
 import PrimsAlgorithm from './Maze/PrimsAlgorithm.js';
 import RecursiveDivision from './Maze/RecursiveDivision.js';
 import RecursiveBacktracker from './Maze/RecursiveBacktracker.js';
+ 
 $(document).ready(function () {
     let turn: boolean = false;
     $("#ch").click(function () {
