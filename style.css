@@ -12,6 +12,7 @@ body {
     display: table;
     width: 100%;
     overflow: auto;
+    text-shadow: gray 0px 0px 10px;
 }
 
 
@@ -277,6 +278,7 @@ body {
     text-align: justify;
     color: whitesmoke;
     margin: 3%;
+    text-shadow: none;
 }
 
 .AboutMe ul li i {
@@ -298,6 +300,8 @@ body {
     border-radius: 50%;
     width: 200px;
     height: 200px;
+    margin-top: 10px;
+    box-shadow: gray 0px 0px 10px;
 }
 
 .Projects {
@@ -314,6 +318,7 @@ body {
 h2 {
     color: whitesmoke;
     text-align: center;
+    text-shadow: gray 0px 0px 10px;
 }
 
 .Projects h2 {
@@ -321,10 +326,12 @@ h2 {
 }
 
 .Projects img {
+    border-radius: 5%;
     display: inline-block;
     vertical-align: top;
     height: 250px;
     width: 50%;
+    box-shadow: gray 0px 0px 10px;
 }
 
 .Projects figcaption {
@@ -338,6 +345,7 @@ h2 {
     margin-bottom: auto;
     margin-top: 5%;
     margin-bottom: 5%;
+    text-shadow: none;
 }
 
 
@@ -417,78 +425,6 @@ h2 {
     animation: animate 4s linear infinite;
 }
 
-.HomeText span:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.HomeText span:nth-child(2) {
-    animation-delay: .25s;
-}
-
-.HomeText span:nth-child(3) {
-    animation-delay: .50s;
-}
-
-.HomeText span:nth-child(4) {
-    animation-delay: .75s;
-}
-
-.HomeText span:nth-child(5) {
-    animation-delay: 1s;
-}
-
-.HomeText span:nth-child(6) {
-    animation-delay: 1.25s;
-}
-
-.HomeText span:nth-child(7) {
-    animation-delay: 1.50s;
-}
-
-.HomeText span:nth-child(8) {
-    animation-delay: 1.75s;
-}
-
-.HomeText span:nth-child(9) {
-    animation-delay: 2.0s;
-}
-
-.HomeText span:nth-child(10) {
-    animation-delay: 2.25s;
-}
-
-.HomeText span:nth-child(11) {
-    animation-delay: 2.50s;
-}
-
-.HomeText span:nth-child(12) {
-    animation-delay: 2.75s;
-}
-
-.HomeText span:nth-child(13) {
-    animation-delay: 3s;
-}
-
-.HomeText span:nth-child(14) {
-    animation-delay: 3.25s;
-}
-
-.HomeText span:nth-child(15) {
-    animation-delay: 3.50s;
-}
-
-@keyframes animate {
-    0%,
-    100% {
-        color: gold;
-    }
-    5%,
-    95% {
-        color: slategray;
-        text-shadow: none;
-    }
-}
-
 
 /* Pathfinding animation */
 
@@ -565,24 +501,22 @@ h2 {
 }
 
 @media (max-width: 1000px) {
-    .AboutMe img {
-        margin-left: auto;
-        margin-right: auto;
-    }
     .AboutMe {
+        text-align: center;
         position: relative;
         width: 100%;
         height: auto;
     }
     .Projects {
-        position: relative;
         width: 100%;
+        text-align: center;
     }
     .Projects img {
         width: 100%;
     }
     .Projects figcaption {
         width: 99%;
+        margin: auto;
         text-align: justify;
     }
 }
