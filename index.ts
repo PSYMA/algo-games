@@ -12,13 +12,13 @@ $(document).ready(function () {
     $("#ch").click(function () {
         if (!turn) {
             turn = true;
-            document.getElementById("bar").setAttribute("style", "display: none; visibility: hidden");
-            document.getElementById("times").setAttribute("style", "display: inline; visibility: visible");
+            $("#bar").css({ display: "none", visibility: "hidden" });
+            $("#times").css({ display: "inline", visibility: "visible" });
         }
         else {
             turn = false;
-            document.getElementById("times").setAttribute("style", "display: none; visibility: hidden");
-            document.getElementById("bar").setAttribute("style", "display: inline; visibility: visible");
+            $("#times").css({ display: "none", visibility: "hidden" });
+            $("#bar").css({ display: "inline", visibility: "visible" });
         }
     });
 
@@ -43,15 +43,14 @@ $(document).ready(function () {
             if (!isAlgorithmRunning[0]) {
                 // create Grid here
                 if (!isAddGrid) {
-                    let table = document.getElementById("Grid");
+                    let table = $("#Grid").get(0);
                     for (let i = 0; i < row; i++) {
                         let tr = document.createElement("tr");
                         table.appendChild(tr);
                         for (let j = 0; j < column; j++) {
                             let td = document.createElement("td");
                             let btn = document.createElement("div");
-                            // td.setAttribute("style", "font-size: 0px; margin: auto; background: white; color: black; width: 1.2vw; height: 1.2vw");
-                            td.setAttribute("style", "font-size: 20px; margin: auto; background: white; color: black; width: 1.3vw; height: 1.5vw");
+                            td.setAttribute("style", "font-size: 0px; margin: auto; background: white; color: black; width: 1.3vw; height: 1.5vw");
                             td.appendChild(btn);
                             tr.appendChild(td);
 
@@ -180,8 +179,7 @@ $(document).ready(function () {
         }
         function ClearBoardPathFinding(): void {
             if (!isAlgorithmRunning[0]) {
-                document.getElementById("PathFindingMessage").innerHTML = "Welcome to Pathfinding Visualizer! please select an algorithm";
-                wallList = [];
+                $("#PathFindingMessage").html("Welcome to Pathfinding Visualizer! please select an algorithm"); wallList = [];
                 for (let i = 0; i < row; i++) {
                     for (let j = 0; j < column; j++) {
                         buttonArray[i][j].className = " ";
@@ -230,19 +228,19 @@ $(document).ready(function () {
         }
         $("#AStar").click(function () {
             selectPathFindingAlgorithm = PathFindingAlgorithm.Astar;
-            document.getElementById("VisualizePathFinding").textContent = 'Visualize (A*)';
+            $("#VisualizePathFinding").html("Visualize (A*)");
         });
         $("#Dijkstra").click(function () {
             selectPathFindingAlgorithm = PathFindingAlgorithm.Dijkstra;
-            document.getElementById("VisualizePathFinding").textContent = 'Visualize (Dijkstra)';
+            $("#VisualizePathFinding").html("Visualize (Dijkstra)");
         });
         $("#GreedyBestFirst").click(function () {
             selectPathFindingAlgorithm = PathFindingAlgorithm.GreedyBestFirst;
-            document.getElementById("VisualizePathFinding").textContent = 'Visualize (Greedy Best First)';
+            $("#VisualizePathFinding").html("Visualize (Greedy Best First)");
         });
         $("#FloodFill").click(function () {
             selectPathFindingAlgorithm = PathFindingAlgorithm.Floodfill;
-            document.getElementById("VisualizePathFinding").textContent = 'Visualize (Flood Fill)';
+            $("#VisualizePathFinding").html("Visualize (Flood Fill)");
         });
         $("#VisualizePathFinding").click(function () {
             VisualizePathfinding();
@@ -279,14 +277,12 @@ $(document).ready(function () {
     if ($('#SortingBoard').length) {
         enum SortingAlgorithm { None = 0, BubbleSort, QuickSort, MergeSort }
         let arrayElements: Array<Sorting.IProps> = [];
-        let canvas: any = document.getElementById("SortingBoard");
+        let canvas: any = $("#SortingBoard").get(0);
         let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
         let selectSortingAlgorithm: SortingAlgorithm = SortingAlgorithm.None;
-        let slider: any = document.getElementById("Slider");
+        let slider: any = $("#Slider").get(0);
         function AddRandomRect(value: number): void {
-            canvas = document.getElementById("SortingBoard");
-            ctx = canvas.getContext("2d");
-            let canvasWrapperRect = document.getElementById("Canvas-Wrapper").getBoundingClientRect();
+            let canvasWrapperRect = $("#Canvas-Wrapper").get(0).getBoundingClientRect();
             canvas.width = canvasWrapperRect.width;
             arrayElements = [];
             let width = Math.round(canvas.width / value);
@@ -328,17 +324,16 @@ $(document).ready(function () {
                         break;
                 }
                 if (isAlgorithmRunning[0]) {
-                    let slider: any = document.getElementById("Slider");
-                    slider.disabled = true;
+                    $("#Slider").prop("disabled", true);
                 }
             }
         }
         $("#BubbleSort").click(function () {
-            document.getElementById("VisualizeSorting").textContent = 'Visualize (Bubble Sort)';
+            $("#VisualizeSorting").html("Visualize (Bubble Sort)");
             selectSortingAlgorithm = SortingAlgorithm.BubbleSort;
         });
         $("#QuickSort").click(function () {
-            document.getElementById("VisualizeSorting").textContent = 'Visualize (Quick Sort)';
+            $("#VisualizeSorting").html("Visualize (Quick Sort)");
             selectSortingAlgorithm = SortingAlgorithm.QuickSort;
         });
         $("#VisualizeSorting").click(function () {
@@ -347,13 +342,13 @@ $(document).ready(function () {
         $("#ResetArray").click(function () {
             if (!isAlgorithmRunning[0]) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                document.getElementById("SortingMessage").textContent = "Welcome to sorting visualizer! Please select an algorithm";
+                $("#SortingMessage").html("Welcome to sorting visualizer! Please select an algorithm");
                 AddRandomRect(slider.value);
             }
         });
         $("#Slider").on('input', function () {
             if (!isAlgorithmRunning[0]) {
-                document.getElementById("ArraySize").innerHTML = slider.value.toString();
+                $("#ArraySize").html(slider.value.toString());
                 ctx.clearRect(0, 0, 1000, 1000);
                 AddRandomRect(slider.value);
             }
@@ -364,9 +359,9 @@ $(document).ready(function () {
     if ($('#SnakeBoard').length) {
         let snake: any = undefined;
         function PlaySnake(): void {
-            let canvas: any = document.getElementById("SnakeBoard");
+            let canvas: any = $("#SnakeBoard").get(0);
             let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
-            let canvasWrapperRect = document.getElementById("Canvas-Wrapper").getBoundingClientRect();
+            let canvasWrapperRect = $("#Canvas-Wrapper").get(0).getBoundingClientRect();
             canvas.width = canvasWrapperRect.width;
             canvas.height = canvasWrapperRect.height;
             let gameWidth = canvas.width;
@@ -390,3 +385,4 @@ $(document).ready(function () {
         });
     }
 });
+

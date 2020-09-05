@@ -78,85 +78,6 @@ body {
     display: none;
 }
 
-@media (max-width: 952px) {
-    label.logo {
-        font-size: 30px;
-        padding-left: 50px;
-    }
-    .Menu ul li a {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 852px) {
-    .Checkbtn {
-        display: block;
-    }
-    .Menu ul {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background-color: rgb(31, 33, 35);
-        ;
-        top: 80px;
-        left: -100%;
-        text-align: center;
-        transition: all 0.5s;
-        z-index: 2;
-    }
-    .Menu ul li {
-        display: block;
-    }
-    .Menu ul li a {
-        font-size: 20px;
-        display: block;
-        text-align: center;
-    }
-    a:hover .Dropdown-Content {
-        background: none;
-        color: #0082e6;
-    }
-    #Check:Checked~ul {
-        left: 0;
-    }
-    #Check:Checked ul::after {
-        visibility: hidden;
-    }
-    .Dropdown:hover .Dropdown-Content {
-        display: block;
-        position: relative;
-    }
-    .PathfindingAlgorithm .Dropdown:hover .Dropdown-Content {
-        display: block;
-        position: fixed;
-    }
-    .Sorting .Dropdown:hover .Dropdown-Content {
-        display: block;
-        position: fixed;
-    }
-    .Portfolio .Projects p {
-        font-size: 1.4vmax;
-    }
-    .Portfolio .AboutMe p {
-        font-size: 1vmax;
-    }
-    /* .Snake h2 {
-        font-size: 1.5vmax;
-    }
-    .Snake li a {
-        font-size: 1.5vmax;
-    } */
-    .Snake .Arrows button {
-        visibility: visible;
-        width: 7vmax;
-        height: 7vmax;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-    }
-}
-
 .Dropdown .Dropbtn {
     border: none;
     outline: none;
@@ -327,7 +248,6 @@ body {
     font-size: 1.8vmax;
     text-align: center;
     color: rgb(232, 230, 227);
-    ;
 }
 
 .Pathfinding #Grid {
@@ -341,7 +261,7 @@ body {
 /* Portfolio */
 
 .Portfolio a:hover {
-    background: #1b9bff;
+    color: #1b9bff;
 }
 
 .AboutMe {
@@ -349,29 +269,35 @@ body {
     position: fixed;
     width: 30%;
     height: auto;
-    float: left;
+    text-align: center;
 }
 
-.AboutMe p {
+.AboutMe figcaption {
     text-indent: 10%;
     text-align: justify;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2%;
-    color: rgb(232, 230, 227);
-    ;
-    font-size: 1vmax;
+    color: whitesmoke;
+    margin: 3%;
 }
 
-p {
-    word-break: break-word;
+.AboutMe ul li i {
+    color: whitesmoke;
+    margin-left: 10%;
 }
 
-.ID {
+.AboutMe ul li {
+    display: inline-block;
+}
+
+.AboutMe ul li a {
+    color: whitesmoke;
+    letter-spacing: 20px;
+    font-size: 30px;
+}
+
+.AboutMe img {
     border-radius: 50%;
-    width: 15vw;
-    height: 15vw;
-    margin-left: 22%;
+    width: 200px;
+    height: 200px;
 }
 
 .Projects {
@@ -380,34 +306,38 @@ p {
     width: 70%;
 }
 
-.Projects img {
-    display: inline-block;
-    vertical-align: top;
-    width: 46%;
-    height: 20vmax;
-}
-
-.Projects p {
-    display: inline-block;
-    width: 46%;
-    text-indent: 10%;
-    text-align: justify;
-    font-size: 1.6vmax;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    color: rgb(232, 230, 227);
+.Projects a {
+    color: #004daa;
 }
 
 .Projects h1,
 h2 {
+    color: whitesmoke;
     text-align: center;
-    color: rgb(232, 230, 227);
-    ;
-    font-size: 2vw;
 }
 
 .Projects h2 {
     margin-top: 5%;
+}
+
+.Projects img {
+    display: inline-block;
+    vertical-align: top;
+    height: 250px;
+    width: 50%;
+}
+
+.Projects figcaption {
+    text-indent: 10%;
+    color: whitesmoke;
+    text-align: justify;
+    float: right;
+    font-size: 20px;
+    width: 49%;
+    margin-right: 1%;
+    margin-bottom: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 
@@ -426,15 +356,6 @@ h2 {
     background: #1b9bff;
     transition: 0.5s;
 }
-
-
-/* #SnakeBoard {
-    border: 1px solid white;
-    position: relative;
-    margin-top: 2.5%;
-    width: 95vmax;
-    height: 35vmax;
-} */
 
 .Snake h2 {
     font-size: 2.0vmax;
@@ -630,5 +551,98 @@ h2 {
     100% {
         transform: scale(1);
         background-color: yellow;
+    }
+}
+
+@media (max-width: 952px) {
+    label.logo {
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    .Menu ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .AboutMe img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .AboutMe {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    .Projects {
+        position: relative;
+        width: 100%;
+    }
+    .Projects img {
+        width: 100%;
+    }
+    .Projects figcaption {
+        width: 99%;
+        text-align: justify;
+    }
+}
+
+@media (max-width: 852px) {
+    .Checkbtn {
+        display: block;
+    }
+    .Menu ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(31, 33, 35);
+        ;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.5s;
+        z-index: 2;
+    }
+    .Menu ul li {
+        display: block;
+    }
+    .Menu ul li a {
+        font-size: 20px;
+        display: block;
+        text-align: center;
+    }
+    a:hover .Dropdown-Content {
+        background: none;
+        color: #0082e6;
+    }
+    #Check:Checked~ul {
+        left: 0;
+    }
+    #Check:Checked ul::after {
+        visibility: hidden;
+    }
+    .Dropdown:hover .Dropdown-Content {
+        display: block;
+        position: relative;
+    }
+    .PathfindingAlgorithm .Dropdown:hover .Dropdown-Content {
+        display: block;
+        position: fixed;
+    }
+    .Sorting .Dropdown:hover .Dropdown-Content {
+        display: block;
+        position: fixed;
+    }
+    .Portfolio .Projects p {
+        font-size: 1.4vmax;
+    }
+    .Snake .Arrows button {
+        visibility: visible;
+        width: 7vmax;
+        height: 7vmax;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
     }
 }

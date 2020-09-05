@@ -15,7 +15,7 @@ export default class Snake {
     private tailsList: Array<Game.ISnakeProps> = [];
     private ctx: CanvasRenderingContext2D = undefined;
     private isAlgorithmRunning = new Array<boolean>(1);
-    constructor(ctx: CanvasRenderingContext2D, gameWidth: number, gameHeight: number, isAlgorithmRunning: Array<boolean>) {
+    constructor(ctx : CanvasRenderingContext2D, gameWidth: number, gameHeight: number, isAlgorithmRunning: Array<boolean>) {
         this.ctx = ctx;
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
